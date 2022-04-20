@@ -1,0 +1,30 @@
+{
+  "name": "ModeneseReservations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MauMT/ModeneseReservations.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MauMT/ModeneseReservations/issues"
+  },
+  "homepage": "https://github.com/MauMT/ModeneseReservations#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.7",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
+    "mongoose": "^6.3.0"
+  }
+}

@@ -1,0 +1,49 @@
+<%- include ("./templates/header") %>
+
+    <div class="container py-5">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5">
+
+              <p class="h1 mb-5">Crear nuevo ticket</p>
+              <form action="/crearTicket" enctype="multipart/form-data" method="POST">
+                <div class="form-group">
+                  <label for="subject">Asunto</label>
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Ejemplo: Mouse roto" required>
+                </div>
+                <div class="form-group">
+                  <label for="department">Departamento correspondiente</label>
+                   <select id="department" class="form-control" name="departmentId">
+                    <% depts.forEach( dept => { %>
+                      <option value="<%= dept.id %>"><%= dept.name %></option>
+                    <% }); %>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="description">Descripción</label>
+                  <textarea class="form-control" id="description" name="description" rows="3" placeholder="Describe el problema claramente aquí" required></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="evidence">Adjunta evidencia</label>
+                  <input type="file" class="form-control-file" name="evidence" id="evidence">
+                </div>
+                <hr class="my-4">
+                <div class="form-group">
+                  <label for="priority">Prioridad (0 más baja y 4 la más alta)</label>
+                  <select id="priority" class="form-control" name="priority">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
+
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Crear Ticket</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

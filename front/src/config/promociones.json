@@ -1,0 +1,45 @@
+[
+  {
+    "title": "Promoción 50% ",
+    "image": "/images/promociones/1.png",
+    "description": [
+      "Toma captura de pantalla de esta promo y al mostrarla en cualquiera de nuestras sucursales recibirás 50% en nuestro clásico Pastel de Vainilla."
+    ],
+    "expiry": "Válido todo el año"
+  },
+  {
+    "title": "Promoción 2x1 ",
+    "image": "/images/promociones/2.png",
+    "description": [
+      "Llevate 2 pasteles por el precio de uno en cualquiera de nuestras sucursales.",
+      "*Aplica para todos los pasteles en existencia."
+    ],
+    "expiry": "Válido hasta 31 de Agosto del 2021"
+  },
+  {
+    "title": "Promoción 2 + 2",
+    "image": "/images/promociones/3.png",
+    "description": ["¡En la compra de 2 cupcakes nosotros te regalamos 2 más!"],
+    "expiry": "Válido hasta 31 de Agosto de 2021"
+  },
+  {
+    "title": "Promoción Rebanada Gratis",
+    "image": "/images/promociones/4.png",
+    "description": [
+      "En la compra de cualquiera de nuestros pasteles te regalamos una rebanada de nuestro tradicional Cheesecake."
+    ],
+    "expiry": "Válido hasta 31 de Agosto de 2021"
+  },
+  {
+    "title": "Promoción 2x1",
+    "image": "/images/promociones/5.png",
+    "description": ["Llévate 2 Mini Pasteles de Chocolate por el precio de 1."],
+    "expiry": "Válido hasta 31 de Agosto de 2021"
+  },
+  {
+    "title": "Promoción 2x1",
+    "image": "/images/promociones/6.png",
+    "description": ["Llévate 2 Mini Pasteles de Chocolate por el precio de 1."],
+    "expiry": "Válido hasta 31 de Agosto de 2021"
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Pastel de Vainilla",
+    "precio": "$250",
+    "capacidad": "16",
+    "description": "Pastel de vainilla con relleno de fresa y crema",
+    "image": "/images/productos/PasteldeVainilla.png"
+  },
+  {
+    "title": "Pastel de Chocolate",
+    "precio": "$300",
+    "capacidad": "18",
+    "description": "Pastel de chocolate con cubierta sabor chocolate y nuez",
+    "image": "/images/productos/PasteldeChocolate.png"
+  },
+  {
+    "title": "Pastel de Chocolate Doble",
+    "precio": "$300",
+    "capacidad": "16",
+    "description": "Pastel de chocolate con relleno de chocolate y cubierta de chocolate y chispas",
+    "image": "/images/productos/PasteldeChocolateDoble.png"
+  },
+  {
+    "title": "Pastel de Cumpleaños",
+    "precio": "$250",
+    "capacidad": "16",
+    "description": "Pastel de vainilla relleno de crema, chocolate y fresa",
+    "image": "/images/productos/PasteldeCumpleaños.png"
+  },
+  {
+    "title": "Cupcake de Café",
+    "precio": "$15",
+    "capacidad": "1",
+    "description": "Cupcake de café con betún de chocolate",
+    "image": "/images/productos/CupcakedeCafe.png"
+  },
+  {
+    "title": "Cupcake de Vainilla",
+    "precio": "$15",
+    "capacidad": "1",
+    "description": "Cupcake de vainilla con betún de queso",
+    "image": "/images/productos/CupcakedeVainilla.png"
+  },
+  {
+    "title": "Mini Pastel de Chocolate",
+    "precio": "$35",
+    "capacidad": "No. Personas 1",
+    "description": "Pastel de chocolate con cubierta y relleno de chocolate y nuez",
+    "image": "/images/productos/MiniPasteldeChocolate.png"
+  },
+  {
+    "title": "Mini Chocoflan",
+    "precio": "$40",
+    "capacidad": "1",
+    "description": "Pastel de chocolate y capa de flan",
+    "image": "/images/productos/RebanadaChocoflan.png"
+  },
+  {
+    "title": "Rebanada de Cheesecake",
+    "precio": "$35",
+    "capacidad": "1",
+    "description": "Cheesecake receta especial de la casa",
+    "image": "/images/productos/RebanadaCheesecake.png"
+  }
+]

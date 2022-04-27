@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Monterrey",
+    "image": "/images/sucursales/Monterrey.jpg",
+    "description": "Monterrey es una ciudad y capital del estado de Nuevo León. Se encuentra en la Región Noreste de México."
+  },
+  {
+    "title": "San Nicolás",
+    "image": "/images/sucursales/SanNicolas.jpg",
+    "description": "San Nicolás de los Garza es un municipio que forma parte de la Zona Metropolitana de Monterrey, en el Estado de Nuevo León, al noreste de México."
+  },
+  {
+    "title": "Apodaca",
+    "image": "/images/sucursales/Apodaca.jpg",
+    "description": "Apodaca es una ciudad mexicana, situada en el estado de Nuevo León y cabecera del municipio del mismo nombre. "
+  },
+  {
+    "title": "Santiago",
+    "image": "/images/sucursales/Santiago.jpg",
+    "description": "El municipio de Santiago es uno de los 51 municipios en que se encuentra dividido el estado mexicano de Nuevo León."
+  }
+]

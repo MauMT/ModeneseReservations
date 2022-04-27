@@ -8,6 +8,7 @@ const { render } = require('ejs');
 
 const Horario = require('../models/horario');
 const ReservacionController = require('../controllers/ReservacionController');
+const ProductoController = require('../controllers/ProductoController');
 
 router.get("/", function(req, res)
 {
@@ -45,6 +46,8 @@ router.post("/api/crearHorario",  async(req, res, next) => {
     res.status(201).json({ horario: nuevoHorario});
 
 });
+
+router.post("/api/addProduct", ProductoController.agregarProductoOrden);
 
 
 module.exports = router; 

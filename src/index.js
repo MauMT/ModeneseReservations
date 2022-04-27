@@ -15,6 +15,9 @@ const PORT = process.env.PORT || 3001;
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.set('views', path.join(__dirname,'views'));
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 app.use('/uploads/images', express.static(path.join('uploads', 'images')));
 
@@ -32,7 +35,7 @@ app.use((req, res, next) => {
 
 // ============= ROUTES
 app.use("/", require("./routes/index.routes"));
-
+/* 
 app.use((req, res, next) => {
   const error = new HttpError('Could not find this route.', 404);
   throw error;
@@ -50,7 +53,7 @@ app.use((error, req, res, next) => {
   res.status(error.code || 500);
   res.json({ message: error.message || 'An unknown error occurred!' });
 });
-
+ */
 //  ============= STATIC FILES
 
 

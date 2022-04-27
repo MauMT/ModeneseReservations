@@ -1,6 +1,12 @@
 const {Router} = require('express');
 const router = Router();
+//const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const ObjectId = require('mongoose').Types.ObjectId; 
+const { check } = require('express-validator');
 const { render } = require('ejs');
+
+const ReservacionController = require('../controllers/ReservacionController');
 
 router.get("/", function(req, res)
 {
@@ -14,6 +20,29 @@ router.get("/", function(req, res)
 }
 ); */
 
+router.post("/api/crearReservacion", ReservacionController.crearReservacion);
+
+router.post("/api/crearHorario",  async(req, res, next) => {
+
+    const {diaSemana, horaInicio, horaCierre} = req.body;
+    const nuevoHorario = new Horario({
+        diaSemana: diaSemana,
+        horaInicio: horaInicio,
+        horaCierre: horaCierre
+    });
+
+    try {
+        await nuevoHorario.save();
+    } catch (error) {
+        console.log(error);
+        return next(
+            new HttpError('Error al crear horario', 500)
+        );
+    }
+
+    res.status(201).json({ horario: nuevoHorario});
+
+});
 
 
 module.exports = router; 

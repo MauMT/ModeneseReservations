@@ -1,33 +1,34 @@
+const {Schema, model} = require('mongoose');
+const mongoose = require('mongoose');
 
-
-const OrdenModel = (sequelize, DataTypes) => {
-    const Orden = sequelize.define(
-      'orden',
-      {
-        fecha: {
-            type: DataTypes.DATE,
-        },
-        estado:{
-            type: DataTypes.ENUM('En preparación', 'en camino', 'lista', 'cerrada', 'cancelada'),
-        },
-        total: {
-            type: DataTypes.DECIMAL(10, 2),
-        },
-        nombre: {
-            type: DataTypes.STRING(200),
-        },
-        telefono: {
-            type: DataTypes.STRING(200),
-        },
-
-      },
-      {
-        timestamps: true,
-        modelName: 'Orden',
-      }
-    );
-
-    return Orden;
-};
+var ordenSchema = new Schema({
     
-module.exports = OrdenModel;
+    fecha: {
+        type: Date,
+        required: true,
+    },
+    estado: {
+        type: String,
+        enum: ['En preparación', 'Lista', 'Cancelada', 'Entregada'],
+        default: 'En preparación',
+    },
+    total: {
+        type: Number,
+        min: [0, 'El total no puede ser negativo'],
+    },
+    nombreCliente: {
+        type: String,
+    },
+    telefono: {
+        type: String,
+    },
+    productos: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Producto",
+        required: true,
+    }],
+},
+    { timestamps: true }
+)
+
+module.exports = model('Orden', ordenSchema);

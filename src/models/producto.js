@@ -18,7 +18,8 @@ var productoSchema = new Schema({
         ref: "Orden",
     }],
 },
-    { timestamps: true }
+    { timestamps: true },
+    { collection: 'Productos' }
 )
 
 module.exports = model('Producto', productoSchema);

@@ -16,6 +16,8 @@ var horarioSchema = new Schema({
         type: Date,
         required: true,
     },
-})
+},
+    { collection: 'Horarios' }
+)
 
 module.exports = model('Horario', horarioSchema);

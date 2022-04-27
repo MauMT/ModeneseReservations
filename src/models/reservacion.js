@@ -29,7 +29,8 @@ var reservacionSchema = new Schema({
         required: true,
     },
 },
-    { timestamps: true }
+    { timestamps: true },
+    { collection: 'Reservaciones' }
 )
 
 module.exports = model('Reservacion', reservacionSchema);

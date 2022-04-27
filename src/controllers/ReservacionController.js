@@ -19,6 +19,31 @@ const crearReservacion = async(req, res, next) => {
 
     //validar fecha y hora para evitar overlap de reservaciones y mesa
     // buscar si hay alguna reservacion a esa misma mesa en esa misma fecha y rango de hora
+    let existingReservation;
+    try{
+        existingReservation = await Reservacion.findOne({numMesa: numMesa/* , fecha: {
+            $gte: fecha,
+            $lte: {
+                $dateAdd: {
+                startDate: fecha,
+                unit: "hour",
+                amount: 2
+                }
+            }
+        } */
+    });
+    }catch(error){
+        return next(
+            new HttpError('Error en la búsqueda de reservaciones', 500)
+        );
+    }
+    
+    if(existingReservation){
+        return next(
+            new HttpError('Ya existe reservación a esa mesa en esa hora', 422)
+        );
+    }
+
     try {
         await createdReservation.save();
     } catch (error) {

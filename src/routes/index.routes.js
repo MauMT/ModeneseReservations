@@ -6,6 +6,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 const { check } = require('express-validator');
 const { render } = require('ejs');
 
+const Horario = require('../models/horario');
 const ReservacionController = require('../controllers/ReservacionController');
 
 router.get("/", function(req, res)
@@ -22,6 +23,7 @@ router.get("/", function(req, res)
 
 router.post("/api/crearReservacion", ReservacionController.crearReservacion);
 
+// Ruta opcional para creación y/o modificación de horarios
 router.post("/api/crearHorario",  async(req, res, next) => {
 
     const {diaSemana, horaInicio, horaCierre} = req.body;

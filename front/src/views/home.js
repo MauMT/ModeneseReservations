@@ -9,7 +9,7 @@ const Home = () => {
         <Grid item xs={12}>
           <LazyLoad once>
             <img
-              src="https://www.modenese.mx/images/Modenese-1.jpg"
+              src="https://scontent.fntr4-1.fna.fbcdn.net/v/t39.30808-6/241211218_4520655647980637_8557238827873943250_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeG5kGhozPx8iTEZoEEjP0lIoK_aLjedKoygr9ouN50qjHmASlD4aQNtRrRUkJUu3lLLj3LEwhHzOgGjZDqLzt77&_nc_ohc=5ODquRtUE8oAX9VOxTd&_nc_ht=scontent.fntr4-1.fna&oh=00_AT-34NySkVUE9yK_AyubO2rjjPuQNa4DvFltFzgOFxYByQ&oe=626E7C1F"
               alt="foto de final"
               style={{
                 width: '100%',

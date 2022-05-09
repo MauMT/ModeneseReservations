@@ -1,45 +1,25 @@
 [
   {
     "title": "Promoción 50% ",
-    "image": "/images/promociones/1.png",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6IjY3YzkyMmMwY2U0ZTA4MzE2NDFjOTY0NDM0NjhmNjBiLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0=",
     "description": [
-      "Toma captura de pantalla de esta promo y al mostrarla en cualquiera de nuestras sucursales recibirás 50% en nuestro clásico Pastel de Vainilla."
+      "Toma captura de pantalla de esta promo y al mostrarla en cualquiera de nuestras sucursales recibirás 50% en cualquier platillo."
     ],
     "expiry": "Válido todo el año"
   },
   {
-    "title": "Promoción 2x1 ",
-    "image": "/images/promociones/2.png",
+    "title": "Promoción 2️⃣ x 1️⃣ ",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6ImFkYzg1Y2JjNTk2MTk3N2QzYTczNWU2MGI4YjdjN2MzLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0=",
     "description": [
-      "Llevate 2 pasteles por el precio de uno en cualquiera de nuestras sucursales.",
-      "*Aplica para todos los pasteles en existencia."
+      "Llevate 2 (X) por el precio de uno en cualquiera de nuestras sucursales.",
+      "*No acumulable con otra promoción."
     ],
-    "expiry": "Válido hasta 31 de Agosto del 2021"
+    "expiry": "Válido hasta 31 de Agosto del 2022"
   },
   {
-    "title": "Promoción 2 + 2",
-    "image": "/images/promociones/3.png",
-    "description": ["¡En la compra de 2 cupcakes nosotros te regalamos 2 más!"],
-    "expiry": "Válido hasta 31 de Agosto de 2021"
-  },
-  {
-    "title": "Promoción Rebanada Gratis",
-    "image": "/images/promociones/4.png",
-    "description": [
-      "En la compra de cualquiera de nuestros pasteles te regalamos una rebanada de nuestro tradicional Cheesecake."
-    ],
-    "expiry": "Válido hasta 31 de Agosto de 2021"
-  },
-  {
-    "title": "Promoción 2x1",
-    "image": "/images/promociones/5.png",
-    "description": ["Llévate 2 Mini Pasteles de Chocolate por el precio de 1."],
-    "expiry": "Válido hasta 31 de Agosto de 2021"
-  },
-  {
-    "title": "Promoción 2x1",
-    "image": "/images/promociones/6.png",
-    "description": ["Llévate 2 Mini Pasteles de Chocolate por el precio de 1."],
-    "expiry": "Válido hasta 31 de Agosto de 2021"
+    "title": "Promoción 2️⃣ + 2️⃣",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6ImE3YWJmOGEzYTViZjNkYzhmMDYzNTQzZTU5NWIwNzJlLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0=",
+    "description": ["¡En la compra de 2 pizzas nosotros te regalamos 2 más!"],
+    "expiry": "Válido hasta 31 de Agosto de 2022"
   }
 ]

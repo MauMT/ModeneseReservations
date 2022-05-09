@@ -1,5 +1,4 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -10,7 +9,6 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import { Paper } from '@material-ui/core';
 
 function Copyright() {
@@ -79,6 +77,9 @@ const Contact = () => {
               <TextField variant="outlined" required fullWidth label="Correo" />
             </Grid>
             <Grid item xs={12}>
+              <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" required fullWidth label="Número de personas" />
+            </Grid>
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -86,13 +87,13 @@ const Contact = () => {
                 multiline
                 rows={5}
                 autoComplete="none"
-                label="Mensaje"
+                label="Detalles de la reservación"
               />
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox color="primary" />}
-                label="Quiero recibir las deliciosas promociones por medio del correo."
+                label="Quiero recibir notificaciones por medio del correo."
               />
             </Grid>
           </Grid>
@@ -104,7 +105,7 @@ const Contact = () => {
             color="primary"
             className={classes.submit}
           >
-            Enviar
+            Reservar
           </Button>
         </form>
       </Paper>

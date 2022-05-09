@@ -1,0 +1,25 @@
+[
+  {
+    "title": "Promoción 50% ",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6IjY3YzkyMmMwY2U0ZTA4MzE2NDFjOTY0NDM0NjhmNjBiLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0=",
+    "description": [
+      "Toma captura de pantalla de esta promo y al mostrarla en cualquiera de nuestras sucursales recibirás 50% en cualquier platillo."
+    ],
+    "expiry": "Válido todo el año"
+  },
+  {
+    "title": "Promoción 2️⃣ x 1️⃣ ",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6ImFkYzg1Y2JjNTk2MTk3N2QzYTczNWU2MGI4YjdjN2MzLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0=",
+    "description": [
+      "Llevate 2 (X) por el precio de uno en cualquiera de nuestras sucursales.",
+      "*No acumulable con otra promoción."
+    ],
+    "expiry": "Válido hasta 31 de Agosto del 2022"
+  },
+  {
+    "title": "Promoción 2️⃣ + 2️⃣",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6ImE3YWJmOGEzYTViZjNkYzhmMDYzNTQzZTU5NWIwNzJlLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0=",
+    "description": ["¡En la compra de 2 pizzas nosotros te regalamos 2 más!"],
+    "expiry": "Válido hasta 31 de Agosto de 2022"
+  }
+]

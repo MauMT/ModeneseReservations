@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Pizza pepperoni",
+    "precio": "$250",
+    "capacidad": "16",
+    "description": "Base de tomate con mozzarella y peperoni",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6IjExNDlkZTNiMmUwM2QzZDk0M2MzMjJmNjZjZjQxMTdmLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
+  },
+  {
+    "title": "Mejillones al vino blanco",
+    "precio": "$300",
+    "capacidad": "4",
+    "description": "500 g Mejillones de ensenada preparados al vino blanco o a la diabla",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6ImFkYzg1Y2JjNTk2MTk3N2QzYTczNWU2MGI4YjdjN2MzLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
+  },
+  {
+    "title": "Risotto al formagi",
+    "precio": "$300",
+    "capacidad": "4",
+    "description": "Risotto vialone nano con salsa de quesos italianos",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6IjEwODA2MTUyZTQ2OGFlM2I1Y2E3ZDVkOWU1ZDZkZjVmLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
+  },
+  {
+    "title": "Spaghetti alla amatriciana",
+    "precio": "$300",
+    "capacidad": "4",
+    "description": "Con salsa de tomate, guanciale artesanal y pecorio romano",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6IjY4ODg3MzEwZGQ3Y2E1N2Y3YzBiYTU2OTczZWJkZTEwLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
+  }   
+]

@@ -22,7 +22,7 @@ const crearReservacion = async(req, res, next) => {
     // buscar si hay alguna reservacion a esa misma mesa en esa misma fecha y rango de hora
     let existingReservation;
     try{
-        existingReservation = await Reservacion.findOne({numMesa: numMesa, horarioDefinido:horarioDefinido});
+        existingReservation = await Reservacion.findOne({fecha: fecha, numMesa: numMesa, horarioDefinido: horarioDefinido});
     }catch(error){
         return next(
             new HttpError('Error en la búsqueda de reservaciones', 500)
@@ -74,6 +74,7 @@ const getPostComments = async(req, res, next) => {
 } */
 
 const actualizarEstadoReservacion = async(req, res, next) => {
+    //es posible hacer esto usando la fecha, hora y mesa
     const reservacionId = req.body.reservacionId;
     const nuevoEstado = req.body.estado;
     

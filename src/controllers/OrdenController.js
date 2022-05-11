@@ -1,13 +1,14 @@
-const { validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+//const { validationResult } = require('express-validator');
+
+//const jwt = require('jsonwebtoken');
 
 const Orden = require('../models/orden');
 const HttpError = require('../models/http-error');
 
+//hace falta calcular el total de la orden
 const crearOrden = async(req, res, next) => {
     console.log(req);
-    const {fecha, estado, nombreCliente, telefono, productos} = req.body;
+    const {fecha, nombreCliente, telefono, productos} = req.body;
 
     /* total = { $reduce: {
         input: '$items', initialValue: 0,
@@ -18,8 +19,6 @@ const crearOrden = async(req, res, next) => {
 
     const createdOrder = new Orden({
         fecha: fecha,
-        estado: estado,
-        /* total: total, */
         nombreCliente: nombreCliente,
         telefono: telefono,
         productos: productos
@@ -34,7 +33,7 @@ const crearOrden = async(req, res, next) => {
         );
     }
 
-    res.status(201).json({ orden: createdOrder});
+    res.status(200).json({ createdOrder: createdOrder});
 }
 /* 
 const getOrderProducts = async(req, res, next) => {

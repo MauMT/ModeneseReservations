@@ -67,4 +67,7 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-console.log(`Database: ${process.env.MONGODB_URI}`);
+console.log(`Database: ${process.env.MONGODB_ATLAS}`);
+
+
+//database

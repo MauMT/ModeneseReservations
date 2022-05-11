@@ -8,8 +8,30 @@ const schemaRegister = Joi.object({
     password: Joi.string().min(6).max(1024).required()
 })
 
+const schemaLogin = Joi.object({
+    email: Joi.string().min(6).max(255).required().email(),
+    password: Joi.string().min(6).max(1024).required()
+})
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+
+router.post('/login', async (req, res) => {
+
+        //validation
+        const {error} = schemaLogin.validate(req.body);
+        if (error) return res.status(400).json({ error: error.details[0].message })
+         const user = await User.findOne({ email: req.body.email });
+         if (!user) return res.status(400).json({ error: 'Usuario no encontrado '});
+
+         const validPassword = await bcrypt.compare(req.body.password, user.password);
+         if (!validPassword) return res.status(400).json({error: 'contraseña incorrecta'})
+
+         res.json({
+             error: null,
+             data: 'bienvenido'
+         })
+})
+
 router.post('/register', async (req, res) => {
 
     //user validation
@@ -18,7 +40,7 @@ router.post('/register', async (req, res) => {
         return res.status(400).json({error: error.details[0].message})
     }
     const emailExists = await User.findOne({email: req.body.email})
-    //if (emailExists) return res.status(400).json({error: true, mensaje: 'email ya esta registrado'})
+    if (emailExists) return res.status(400).json({error: true, mensaje: 'email ya esta registrado'})
 
     const salt = await bcrypt.genSalt(10);
     const password = await bcrypt.hash(req.body.password, salt)

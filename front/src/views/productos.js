@@ -39,7 +39,7 @@ axios.get('http://localhost:3001/api/getProductos')
   })
   .catch(function (error) {
     //handle error
-    console.log('error');
+    console.log('error retrieving data');
   })
 
 const Productos = () => {
@@ -64,7 +64,7 @@ const Productos = () => {
                   <strong>Precio: </strong>
                   {producto.precio}
                 </Typography>
-                {/* <Typography variant="body2">{producto.description}</Typography> */}
+                <Typography variant="body2">{producto.descripcion}</Typography>
               </CardContent>
             </Card>
           </Grid>

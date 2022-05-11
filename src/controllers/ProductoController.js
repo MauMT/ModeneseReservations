@@ -8,12 +8,13 @@ const Orden = require('../models/orden');
 
 
 const crearProducto = async(req, res, next) => {
-    const {nombreProducto, imagen, precio} = req.body;
+    const {nombreProducto, imagen, precio, descripcion} = req.body;
 
     const createdProduct = new Producto({
         nombreProducto: nombreProducto,
         imagen: imagen,
-        precio: precio
+        precio: precio,
+        descripcion: descripcion
     })
 
     

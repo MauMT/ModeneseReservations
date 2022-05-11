@@ -30,12 +30,21 @@ const crearOrden = async(req, res, next) => {
     } catch (error) {
         console.log(error);
         return next(
-            new HttpError('Error al crear reservación', 500)
+            new HttpError('Error al crear orden', 500)
         );
     }
 
-    res.status(201).json({ reservacion: createdReservation});
+    res.status(201).json({ orden: createdOrder});
 }
+/* 
+const getOrderProducts = async(req, res, next) => {
+    const orderId = req.params.orderId;
+    const order = await Orden.findById(orderId);
+    if (!order) {
+        return next(new HttpError('No se encontró la orden', 404));
+    }
+    res.json({ order: order });
+} */
 
 module.exports = {
     crearOrden: crearOrden

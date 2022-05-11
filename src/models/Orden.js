@@ -28,8 +28,10 @@ var ordenSchema = new Schema({
         required: true,
     }],
 },
-    { timestamps: true },
-    { collection: 'Ordenes' }
+    { collection: 'Ordenes' },
+    { timestamps: true }
 )
+
+
 
 module.exports = model('Orden', ordenSchema);

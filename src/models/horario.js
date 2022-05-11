@@ -1,6 +1,7 @@
 const {Schema, model} = require('mongoose');
 const mongoose = require('mongoose');
 
+// con la nueva implementación de horarios, este schema puede ser obsoleto
 var horarioSchema = new Schema({
     
     diaSemana: {

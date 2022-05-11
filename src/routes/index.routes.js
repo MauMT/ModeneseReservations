@@ -24,6 +24,8 @@ router.get("/", function(req, res)
 
 router.post("/api/crearReservacion", ReservacionController.crearReservacion);
 
+router.post("/api/actualizarEstadoReservacion", ReservacionController.actualizarEstadoReservacion);
+
 // Ruta opcional para creación y/o modificación de horarios
 router.post("/api/crearHorario",  async(req, res, next) => {
 
@@ -49,5 +51,10 @@ router.post("/api/crearHorario",  async(req, res, next) => {
 
 router.post("/api/addProduct", ProductoController.agregarProductoOrden);
 
+router.post("/api/crearProducto", ProductoController.crearProducto);
+
+router.get("/api/getReservaciones", ReservacionController.getReservaciones);
+
+router.get("/api/getProductos", ProductoController.getProductos);
 
 module.exports = router; 

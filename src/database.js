@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const path = require("path");
 dotenv.config({ path: path.resolve(__dirname, './.env') });
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_ATLAS)
     .then(() => console.log('connection successful'))
     .catch((err) => console.error(err));
 

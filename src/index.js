@@ -4,7 +4,7 @@ const path = require("path");
 const app = express();
 const dotenv = require("dotenv");
 const fs = require('fs');
-
+const cors = require('cors');
 
 const {mongoose} = require("./database");
 dotenv.config({ path: path.resolve(__dirname, './.env') });
@@ -21,7 +21,22 @@ app.use(express.static('public'));
 
 app.use('/uploads/images', express.static(path.join('uploads', 'images')));
 
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
 
+app.use(function(req, res, next) {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.set('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+  next();
+})
+
+/*
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
@@ -31,16 +46,17 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, PUT');
 
   next();
-});
+}); */
 
 // ============= ROUTES
 app.use("/", require("./routes/index.routes"));
-/* 
+
 app.use((req, res, next) => {
   const error = new HttpError('Could not find this route.', 404);
   throw error;
 });
 
+/*
 app.use((error, req, res, next) => {
   if (req.file) {
     fs.unlink(req.file.path, err => {
@@ -54,6 +70,7 @@ app.use((error, req, res, next) => {
   res.json({ message: error.message || 'An unknown error occurred!' });
 });
  */
+
 //  ============= STATIC FILES
 
 

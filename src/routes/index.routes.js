@@ -60,9 +60,9 @@ router.post("/api/crearProducto", ProductoController.crearProducto);
 
 router.get("/api/getReservaciones", ReservacionController.getReservaciones);
 
-router.get("/api/getProductos", ProductoController.getProductos);
+router.get("/api/getProducts", ProductoController.getProductos);
 
 router.get("/api/getOrderProducts", OrdenController.getOrderProducts);
 
-router.get("/api/getOrdenes", OrdenController.getOrdenes);
+router.get("/api/getOrders", OrdenController.getOrdenes);
 module.exports = router; 

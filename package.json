@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/MauMT/ModeneseReservations#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.7",
     "express": "^4.17.3",

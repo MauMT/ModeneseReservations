@@ -8,7 +8,18 @@ import {
   CardContent,
 } from '@material-ui/core';
 import React from 'react';
+import axios from 'axios';
 import productos from '../config/productos.json';
+
+console.log('mau')
+
+// usar get route de products
+axios.get('localhost:3001/api/getProducts').then((response) => {
+  console.log(response.data);
+  console.log("hola");
+});
+
+
 
 const styles = makeStyles((theme) => ({
   cardGrid: {

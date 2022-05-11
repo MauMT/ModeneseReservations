@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const bodyparser = require("body-parser")
 const path = require("path");
 const app = express();
 const dotenv = require("dotenv");
@@ -13,8 +14,8 @@ const PORT = process.env.PORT || 3001;
 //  ============= MIDDLEWARE
 
 app.use(morgan("dev"));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.json());
 app.set('views', path.join(__dirname,'views'));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -54,6 +55,7 @@ app.use((error, req, res, next) => {
   res.json({ message: error.message || 'An unknown error occurred!' });
 });
  */
+
 //  ============= STATIC FILES
 
 

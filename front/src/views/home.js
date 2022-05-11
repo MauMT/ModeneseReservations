@@ -16,6 +16,7 @@ const Home = () => {
                 display: 'block',
                 marginLeft: 'auto',
                 marginRight: 'auto',
+                marginTop: '2rem'
               }}
             />
           </LazyLoad>
@@ -33,13 +34,13 @@ const Home = () => {
             />
         </Grid>
         <Grid item xs={12}>
-          <h2>¿Quiénes Somos?</h2>
+          <h3>10 años interpretando recetas clásicas y modernas de Italia</h3>
           <div>
             <Typography>
-              <i>Amamos crear comida</i>
+              <i>Nuestro origen</i>
             </Typography>
             <Typography>
-              Somos el mejor restaurante de Monterrey, no dudes en venir!
+            Módena, es una conquista antigua en el nombre de la tradición y salvaguardia de los sabores, ya que es rica en gastronomía, cultura y arquitectura, así como ciudad natal de múltiples personajes ilustres, como Enzo Ferrari, fundador de la Scuderia Ferrari y Luciano Pavarotti. el gran tenor del bello canto
             </Typography>
           </div>
         </Grid>

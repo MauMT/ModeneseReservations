@@ -27,7 +27,7 @@ const routes = [
     component: Sucursales,
   },
   {
-    name: 'Reservacion',
+    name: 'Reservación',
     ruta: '/reservacion',
     component: Contact,
   },

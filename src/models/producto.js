@@ -12,11 +12,7 @@ var productoSchema = new Schema({
     },
     precio: {
         type: Number,
-    },
-    ordenes: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Orden",
-    }],
+    }
 },
     { timestamps: true },
     { collection: 'Productos' }

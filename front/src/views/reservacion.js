@@ -9,7 +9,9 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Paper } from '@material-ui/core';
+import { FormGroup, Icon, Paper } from '@material-ui/core';
+import TableRestaurantIcon from '@mui/icons-material/TableRestaurant';
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
 function Copyright() {
   return (
@@ -79,6 +81,7 @@ const Contact = () => {
             <Grid item xs={12}>
               <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" required fullWidth label="Número de personas" />
             </Grid>
+            
             <Grid item xs={12}>
               <TextField
                 variant="outlined"

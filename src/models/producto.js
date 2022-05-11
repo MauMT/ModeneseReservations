@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 var productoSchema = new Schema({
     
     nombreProducto: {
-        type: Date,
+        type: String,
         required: true,
     },
     imagen: {
@@ -12,10 +12,11 @@ var productoSchema = new Schema({
     },
     precio: {
         type: Number,
+        min: [0, 'El precio no puede ser negativo'],
     }
 },
-    { timestamps: true },
-    { collection: 'Productos' }
+    { collection: 'Productos' },
+    { timestamps: true }
 )
 
 module.exports = model('Producto', productoSchema);

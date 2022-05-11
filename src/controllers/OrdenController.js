@@ -2,7 +2,7 @@
 
 //const jwt = require('jsonwebtoken');
 
-const Orden = require('../models/orden');
+const Orden = require('../models/Orden');
 const HttpError = require('../models/http-error');
 
 //hace falta calcular el total de la orden

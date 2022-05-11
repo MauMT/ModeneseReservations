@@ -10,8 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { FormGroup, Icon, Paper } from '@material-ui/core';
-import TableRestaurantIcon from '@mui/icons-material/TableRestaurant';
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
+//import TableRestaurantIcon from '@mui/icons-material/TableRestaurant';
+//import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
 function Copyright() {
   return (

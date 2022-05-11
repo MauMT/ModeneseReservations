@@ -14,6 +14,7 @@ const schemaLogin = Joi.object({
 })
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 router.post('/login', async (req, res) => {
 
@@ -22,14 +23,20 @@ router.post('/login', async (req, res) => {
         if (error) return res.status(400).json({ error: error.details[0].message })
 
         const user = await User.findOne({ email: req.body.email });
-        if (!user) return res.status(400).json({ error: true,  mensaje: 'Usuario no encontrado '});
+        if (!user) return res.status(400).json({ error: true,  mensaje: 'Usuario no encontrado'});
 
         const validPassword = await bcrypt.compare(req.body.password, user.password);
         if (!validPassword) return res.status(400).json({error: true, mensaje: 'contraseña incorrecta'})
 
-        res.json({
+        //create token
+        const token = jwt.sign({
+            name: user.name,
+            id: user._id
+        }, process.env.TOKEN_SECRET)
+
+        res.header('auth-token', token).json({
             error: null,
-            data: 'bienvenido'
+            data: {token}
         })
 })
 

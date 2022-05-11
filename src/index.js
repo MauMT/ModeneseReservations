@@ -36,8 +36,11 @@ app.use((req, res, next) => {
 
 // ============= ROUTES
 const authRoutes = require('./routes/auth')
-app.use('/api/user', authRoutes)
+const validateToken = require('./routes/validate-token')
+const userRoutes = require('./routes/registered-user')
 
+app.use('/api/user', authRoutes);
+app.use('/api/registered-user', validateToken, userRoutes);
 app.use("/", require("./routes/index.routes"));
 /* 
 app.use((req, res, next) => {

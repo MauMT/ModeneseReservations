@@ -1,30 +1,74 @@
 [
   {
-    "title": "Pizza pepperoni",
-    "precio": "$250",
-    "capacidad": "16",
+    "title": "Pizza de pepperoni",
+    "precio": "$225",
     "description": "Base de tomate con mozzarella y peperoni",
     "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6IjExNDlkZTNiMmUwM2QzZDk0M2MzMjJmNjZjZjQxMTdmLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
   },
   {
+    "title": "Pizza Focaccia Classica",
+    "precio": "$185",
+    "description": "Romero y parmesano",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6IjIwODk5MzQyOGJjOWIwZTUyYjk4MGIxNGIyMDI0OTZmLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
+  },
+  {
+    "title": "Pizza Margherita",
+    "precio": "$195",
+    "description": "Pizza básica, con salsa de tomate y queso mozzarella",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6Ijk0MGJlMGI0NGI1NzczZjI5NzlkNDk1YzQ5MzUyZWE4LnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
+  },
+  {
+    "title": "Pizza Mexicana",
+    "precio": "$264",
+    "description": "Tomate, queso, pancheta, cebolla morada, chile serrano",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6ImM0ZmYxOTUyNzlhNzA0Y2VjZGVkMGZjN2Q4MjRlOWNkLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
+  },
+  {
+    "title":"Pizza 4 Formaggi",
+    "precio": "$285",
+    "description": "Gorgonzola, parmesano, gouda y manchego",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6ImE5NTQ5Y2VkMjE4NDYyYTYzMWQyYWVkMTgzMmJiNmFiLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
+  },
+  {
+    "title": "Pizza 4 Stagioni",
+    "precio": "$285",
+    "description": "Salsiccia italiana, champiñones, jamón y alcachofa",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6IjJkODE4NDZiNDFiYjdiYmE5NDBmMTA3NDY1NWEyM2I2LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
+  },
+  {
+    "title": "Pizza Parma",
+    "precio": "$324",
+    "description": "Tomate, mozzarella, prosciutto artesanal, arugula y cherry orgánico",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6IjNkYmZmNTY3NWJkNDJmZjQyODI2MTViM2ZiOGExMThjLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
+  },
+  {
     "title": "Mejillones al vino blanco",
     "precio": "$300",
-    "capacidad": "4",
     "description": "500 g Mejillones de ensenada preparados al vino blanco o a la diabla",
     "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6ImFkYzg1Y2JjNTk2MTk3N2QzYTczNWU2MGI4YjdjN2MzLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
   },
   {
     "title": "Risotto al formagi",
     "precio": "$300",
-    "capacidad": "4",
     "description": "Risotto vialone nano con salsa de quesos italianos",
     "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6IjEwODA2MTUyZTQ2OGFlM2I1Y2E3ZDVkOWU1ZDZkZjVmLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
   },
   {
     "title": "Spaghetti alla amatriciana",
     "precio": "$300",
-    "capacidad": "4",
     "description": "Con salsa de tomate, guanciale artesanal y pecorio romano",
     "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6IjY4ODg3MzEwZGQ3Y2E1N2Y3YzBiYTU2OTczZWJkZTEwLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
+  },
+  {
+    "title": "Pechuga de Pollo Al Funghi",
+    "precio": "$264",
+    "description": "Pechuga a la plancha en salsa cremosa con champiñones",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6ImFiNzllN2MzNmIyZmFmN2NkZGJkZWMyODM2M2U5MTY0LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
+  },
+  {
+    "title": "Crostatina di mele",
+    "precio": "$198",
+    "description": "Manzana horneada, cubierta de tierra de galleta y helado de vainilla con frutos rojos",
+    "image": "https://images.letseat.mx/eyJidWNrZXQiOiJsZXRzZWF0LmltYWdlcyIsImtleSI6ImRhZTAxYTIzODc0Njk1ZTZhZGQ2MDJiODA5NTkxMTg2LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTI4MCwiZml0IjoiY292ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fX0="
   }   
 ]

@@ -65,14 +65,18 @@ const Sucursales = () => {
                   >
                     {sucursal.description}
                   </Typography>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    {sucursal.telefono}
+                  </Typography>
                 </CardContent>
               </CardActionArea>
               <CardActions>
                 <Button size="small" color="primary">
                   Llamar
-                </Button>
-                <Button size="small" color="primary">
-                  Dirección
                 </Button>
               </CardActions>
             </Card>

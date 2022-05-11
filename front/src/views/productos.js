@@ -50,10 +50,6 @@ const Productos = () => {
                   <strong>Precio: </strong>
                   {producto.precio}
                 </Typography>
-                <Typography gutterBottom variant="body1">
-                  <strong>No. Personas: </strong>
-                  {producto.capacidad}
-                </Typography>
                 <Typography variant="body2">{producto.description}</Typography>
               </CardContent>
             </Card>

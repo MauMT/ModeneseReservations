@@ -20,16 +20,17 @@ router.post('/login', async (req, res) => {
         //validation
         const {error} = schemaLogin.validate(req.body);
         if (error) return res.status(400).json({ error: error.details[0].message })
-         const user = await User.findOne({ email: req.body.email });
-         if (!user) return res.status(400).json({ error: 'Usuario no encontrado '});
 
-         const validPassword = await bcrypt.compare(req.body.password, user.password);
-         if (!validPassword) return res.status(400).json({error: 'contraseña incorrecta'})
+        const user = await User.findOne({ email: req.body.email });
+        if (!user) return res.status(400).json({ error: true,  mensaje: 'Usuario no encontrado '});
 
-         res.json({
-             error: null,
-             data: 'bienvenido'
-         })
+        const validPassword = await bcrypt.compare(req.body.password, user.password);
+        if (!validPassword) return res.status(400).json({error: true, mensaje: 'contraseña incorrecta'})
+
+        res.json({
+            error: null,
+            data: 'bienvenido'
+        })
 })
 
 router.post('/register', async (req, res) => {

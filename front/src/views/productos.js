@@ -28,6 +28,19 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
+
+let products = [];
+axios.get('http://localhost:3001/api/getProductos')
+  .then(function (response) {
+    //handle success
+    products = response.data.productos;
+    console.log(products);
+  })
+  .catch(function (error) {
+    //handle error
+    console.log('error');
+  })
+
 const Productos = () => {
   const style = styles();
 

@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import productos from '../config/productos.json';
+import axios from 'axios';
 
 const styles = makeStyles((theme) => ({
   cardGrid: {

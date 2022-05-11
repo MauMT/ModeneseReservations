@@ -56,8 +56,13 @@ router.post("/api/addProduct", ProductoController.agregarProductoOrden);
 
 router.post("/api/crearProducto", ProductoController.crearProducto);
 
+//GETS
+
 router.get("/api/getReservaciones", ReservacionController.getReservaciones);
 
 router.get("/api/getProductos", ProductoController.getProductos);
 
+router.get("/api/getOrderProducts", OrdenController.getOrderProducts);
+
+router.get("/api/getOrdenes", OrdenController.getOrdenes);
 module.exports = router; 

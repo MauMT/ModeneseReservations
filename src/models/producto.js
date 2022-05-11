@@ -13,6 +13,9 @@ var productoSchema = new Schema({
     precio: {
         type: Number,
         min: [0, 'El precio no puede ser negativo'],
+    },
+    descripcion: {
+        type: String
     }
 },
     { collection: 'Productos' },

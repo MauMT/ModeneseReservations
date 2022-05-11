@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -10,8 +10,14 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { FormGroup, Icon, Paper } from '@material-ui/core';
-import TableRestaurantIcon from '@mui/icons-material/TableRestaurant';
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import axios from 'axios';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+
+//import TableRestaurantIcon from '@mui/icons-material/TableRestaurant';
+//import ButtonGroup from 'react-bootstrap/ButtonGroup'
+
 
 function Copyright() {
   return (
@@ -47,8 +53,34 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 const Contact = () => {
   const classes = useStyles();
+  const [nombre, setNombre] = useState("")
+  const [apellido, setApellido] = useState("")
+  const [horario, setHorario] = useState(0)
+  const [fecha, setFecha] = useState(new Date())
+  const [personas, setPersonas] = useState(0)
+  const [mesa, setMesa] = useState(0)
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    console.log("hola",fecha)
+    axios.post('http://localhost:3001/api/crearReservacion', {
+      fecha: fecha,
+      horarioDefinido: 1,
+      nombreCliente: nombre + " " + apellido,
+      numPersonas: personas,
+      numMesa: mesa
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 
   return (
     <Container component="main" maxWidth="md">
@@ -56,7 +88,7 @@ const Contact = () => {
         <Typography component="h1" variant="h5">
           Haz tu reservación 🍽
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -65,6 +97,7 @@ const Contact = () => {
                 fullWidth
                 label="Nombre"
                 autoFocus
+                onChange={e => setNombre(e.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -73,13 +106,20 @@ const Contact = () => {
                 required
                 fullWidth
                 label="Apellido"
+                onChange={e => setApellido(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField variant="outlined" required fullWidth label="Correo" />
+              <TextField variant="outlined" required fullWidth label="Telefono" />
             </Grid>
             <Grid item xs={12}>
-              <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" required fullWidth label="Número de personas" />
+              <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" onChange={e => {setPersonas(e.target.value); console.log(personas)}} required fullWidth label="Número de personas" />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" onChange={e => {setMesa(e.target.value); console.log(mesa)}} required fullWidth label="Número de mesa" />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" onChange={e => {setHorario(e.target.value); console.log(horario)}} required fullWidth label="Horario" />
             </Grid>
             
             <Grid item xs={12}>
@@ -93,6 +133,16 @@ const Contact = () => {
                 label="Detalles de la reservación"
               />
             </Grid>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DatePicker
+                label="Basic example"
+                value={fecha}
+                onChange={(newValue) => {
+                  setFecha(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox color="primary" />}

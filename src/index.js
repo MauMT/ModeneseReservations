@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const bodyparser = require("body-parser")
 const path = require("path");
 const app = express();
 const dotenv = require("dotenv");
@@ -13,8 +14,8 @@ const PORT = process.env.PORT || 3001;
 //  ============= MIDDLEWARE
 
 app.use(morgan("dev"));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.json());
 app.set('views', path.join(__dirname,'views'));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -34,6 +35,12 @@ app.use((req, res, next) => {
 });
 
 // ============= ROUTES
+const authRoutes = require('./routes/auth')
+const validateToken = require('./routes/validate-token')
+const userRoutes = require('./routes/registered-user')
+
+app.use('/api/user', authRoutes);
+app.use('/api/registered-user', validateToken, userRoutes);
 app.use("/", require("./routes/index.routes"));
 /* 
 app.use((req, res, next) => {
@@ -54,6 +61,7 @@ app.use((error, req, res, next) => {
   res.json({ message: error.message || 'An unknown error occurred!' });
 });
  */
+
 //  ============= STATIC FILES
 
 
@@ -62,4 +70,7 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-console.log(`Database: ${process.env.MONGODB_URI}`);
+console.log(`Database: ${process.env.MONGODB_ATLAS}`);
+
+
+//database

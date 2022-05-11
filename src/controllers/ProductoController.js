@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const HttpError = require('../models/http-error');
 const Producto = require('../models/producto');
-const Orden = require('../models/orden');
+const Orden = require('../models/Orden');
 
 
 const crearProducto = async(req, res, next) => {

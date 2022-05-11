@@ -2,7 +2,7 @@
 
 //const jwt = require('jsonwebtoken');
 
-const Orden = require('../models/orden');
+const Orden = require('../models/Orden');
 const HttpError = require('../models/http-error');
 const ProductoController = require('./ProductoController');
 const Producto = require('../models/producto');

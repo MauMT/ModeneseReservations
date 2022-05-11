@@ -10,8 +10,21 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { FormGroup, Icon, Paper } from '@material-ui/core';
+import axios from 'axios';
 //import TableRestaurantIcon from '@mui/icons-material/TableRestaurant';
 //import ButtonGroup from 'react-bootstrap/ButtonGroup'
+
+let products = [];
+axios.get('http://localhost:3001/api/getProductos')
+  .then(function (response) {
+    //handle success
+    products = response.data.productos;
+    console.log(products);
+  })
+  .catch(function (error) {
+    //handle error
+    console.log('error');
+  })
 
 function Copyright() {
   return (

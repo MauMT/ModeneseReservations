@@ -35,6 +35,9 @@ app.use((req, res, next) => {
 });
 
 // ============= ROUTES
+const authRoutes = require('./routes/auth')
+app.use('/api/user', authRoutes)
+
 app.use("/", require("./routes/index.routes"));
 /* 
 app.use((req, res, next) => {

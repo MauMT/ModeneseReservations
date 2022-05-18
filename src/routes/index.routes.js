@@ -56,8 +56,6 @@ router.get("/api/getReservaciones", ReservacionController.getReservaciones);
 
 router.get("/api/getProductos", ProductoController.getProductos);
 
-//DELE
-router.post("/api/eliminarReservacion", ReservacionController.eliminarReservacion);
 
 
  module.exports = router; 

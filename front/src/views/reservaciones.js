@@ -12,7 +12,8 @@ import Button from '@mui/material/Button';
 
 
 // ruta para el boton de borrar
-let rutaDelete = 'http://localhost:3001/api/eliminarReservacion'
+let rutaDelete = 'http://localhost:3001/api/admin/eliminarReservacion'
+var adminHeader = { headers: { "auth-token": sessionStorage.getItem("token")}}
 
 const Reservaciones = () => {
 
@@ -38,7 +39,7 @@ const Reservaciones = () => {
     console.log(id)
     axios.post(rutaDelete, {
       reservacionId: id
-    })
+    }, adminHeader)
     .then(function (response) {
       console.log(response);
       // borrar de reservaciones el 
@@ -49,7 +50,7 @@ const Reservaciones = () => {
       console.log(error);
     }); 
   } 
-
+  
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -62,7 +63,6 @@ const Reservaciones = () => {
             <TableCell align="right">Número de mesa</TableCell>
             <TableCell align="right">Estado</TableCell>
             <TableCell align="right">Borrar</TableCell>
-            <TableCell align="right">nose</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -88,7 +88,6 @@ const Reservaciones = () => {
                   onClick={(e)=> handleClickDelete(e, row._id)}
                   >Borrar</Button>
               </TableCell>
-              <TableCell align="right">boton no se</TableCell>
             </TableRow>
           ))}
         </TableBody>

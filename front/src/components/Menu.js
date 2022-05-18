@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -45,6 +45,7 @@ const routes = [
   }
 ];
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -52,10 +53,16 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: '50px',
   },
 }));
-
+// usado para a¿ocultar login y reservaciones si no se está logeado
 const Menu = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const [rutas, setRutas] = React.useState(routes);
+  useEffect(() => {
+    if(!window.sessionStorage.getItem('token')){
+      setRutas(routes.filter(elem => (elem.name != 'Reservaciones' && elem.name != 'Login')));
+    }
+  })
 
   const handleChange = (_event, newValue) => {
     setValue(newValue);
@@ -74,7 +81,7 @@ const Menu = () => {
             scrollButtons="on"
             aria-label="menu"
           >
-            {routes.map((elem, index) => (
+            {rutas.map((elem, index) => (
               <Tab
                 key={elem.name}
                 component={Link}

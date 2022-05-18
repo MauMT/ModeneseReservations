@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import { Home, Products, Sucursales, Contact, Promociones } from '../views';
+import { Home, Products, Sucursales, Contact, Promociones, Reservaciones } from '../views';
 import { Grid, Tab, Tabs } from '@material-ui/core';
 
 const routes = [
@@ -31,6 +31,11 @@ const routes = [
     ruta: '/reservacion',
     component: Contact,
   },
+  {
+    name: 'Reservaciones',
+    ruta: '/reservaciones',
+    component: Reservaciones,
+  }
 ];
 
 const useStyles = makeStyles((theme) => ({

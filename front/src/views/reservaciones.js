@@ -13,7 +13,10 @@ import Button from '@mui/material/Button';
 
 // ruta para el boton de borrar
 let rutaDelete = 'http://localhost:3001/api/admin/eliminarReservacion'
-var adminHeader = { headers: { "auth-token": sessionStorage.getItem("token")}}
+var adminHeader = { headers: {"Access-Control-Allow-Origin": "*",
+"Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, auth-token',
+ "auth-token": sessionStorage.getItem("token")}}
 
 const Reservaciones = () => {
 
@@ -43,11 +46,11 @@ const Reservaciones = () => {
     .then(function (response) {
       console.log(response);
       // borrar de reservaciones el 
-      alert("Reservacion borrada")
+      alert("Reservación borrada exitosamente")
       setReservaciones(reservaciones.filter(r => r._id != id))
     })
     .catch(function (error) {
-      console.log(error);
+      console.log(error.response);
     }); 
   } 
   

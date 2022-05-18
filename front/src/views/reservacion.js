@@ -66,7 +66,6 @@ const Contact = () => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log("hola",fecha)
     axios.post('http://localhost:3001/api/crearReservacion', {
       fecha: fecha,
       horarioDefinido: 1,
@@ -113,13 +112,13 @@ const Contact = () => {
               <TextField variant="outlined" required fullWidth label="Telefono" />
             </Grid>
             <Grid item xs={12}>
-              <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" onChange={e => {setPersonas(e.target.value); console.log(personas)}} required fullWidth label="Número de personas" />
+              <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" onChange={e => {setPersonas(e.target.value); }} required fullWidth label="Número de personas" />
             </Grid>
             <Grid item xs={12}>
-              <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" onChange={e => {setMesa(e.target.value); console.log(mesa)}} required fullWidth label="Número de mesa" />
+              <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" onChange={e => {setMesa(e.target.value); }} required fullWidth label="Número de mesa" />
             </Grid>
             <Grid item xs={12}>
-              <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" onChange={e => {setHorario(e.target.value); console.log(horario)}} required fullWidth label="Horario" />
+              <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" onChange={e => {setHorario(e.target.value); }} required fullWidth label="Horario" />
             </Grid>
             
             <Grid item xs={12}>

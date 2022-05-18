@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useReducer, useEffect, useState} from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -10,34 +11,44 @@ import axios from 'axios'
 import Button from '@mui/material/Button';
 
 
-let reservaciones = []
 // ruta para el boton de borrar
 let rutaDelete = 'http://localhost:3001/api/eliminarReservacion'
-axios.get('http://localhost:3001/api/getReservaciones')
-  .then(function (response) {
-    //handle success
-    reservaciones = response.data.reservaciones;
-    console.log(reservaciones);
-  })
-  .catch(function (error) {
-    //handle error
-    console.log('error retrieving data');
-})
-
-const handleClickDelete = (e, id) => {
-  console.log(id)
-  axios.post(rutaDelete, {
-    reservacionId: id
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  }); 
-} 
 
 const Reservaciones = () => {
+
+  const [reservaciones, setReservaciones] = useState([]);
+
+  useEffect(() => {
+    
+    axios.get('http://localhost:3001/api/getReservaciones')
+    .then(function (response) {
+      //handle success
+      setReservaciones(response.data.reservaciones)
+      console.log(reservaciones);
+    })
+    .catch(function (error) {
+      //handle error
+      console.log('error retrieving data');
+    })
+
+
+  }, [])
+
+  const handleClickDelete = (e, id) => {
+    console.log(id)
+    axios.post(rutaDelete, {
+      reservacionId: id
+    })
+    .then(function (response) {
+      console.log(response);
+      // borrar de reservaciones el 
+      alert("Reservacion borrada")
+      setReservaciones(reservaciones.filter(r => r._id != id))
+    })
+    .catch(function (error) {
+      console.log(error);
+    }); 
+  } 
 
   return (
     <TableContainer component={Paper}>

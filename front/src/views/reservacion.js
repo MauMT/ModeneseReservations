@@ -195,25 +195,9 @@ const Contact = () => {
                   console.log(mesa)}} 
                 required fullWidth label="Número de mesa" />
             </Grid>
-                       
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                multiline
-                rows={5}
-                autoComplete="none"
-                label="Notas adicionales"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox color="primary" />}
-                label="Quiero recibir notificaciones por medio del correo."
-              />
-            </Grid>
+            
           </Grid>
+          <br/>
           <Button
             type="submit"
             size="large"

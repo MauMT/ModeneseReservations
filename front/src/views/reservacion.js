@@ -80,7 +80,6 @@ const Contact = () => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log("hola",fecha)
     axios.post('http://localhost:3001/api/crearReservacion', {
       fecha: fecha,
       horarioDefinido: horario,

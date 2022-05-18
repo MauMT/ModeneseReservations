@@ -17,12 +17,6 @@ router.get("/", function(req, res)
 }
 );
 
-/* router.get("/home", function(req, res)
-{
-    res.send("homepage");
-}
-); */
-
 router.post("/api/crearReservacion", ReservacionController.crearReservacion);
 
 router.post("/api/actualizarEstadoReservacion", ReservacionController.actualizarEstadoReservacion);
@@ -61,6 +55,9 @@ router.post("/api/crearProducto", ProductoController.crearProducto);
 router.get("/api/getReservaciones", ReservacionController.getReservaciones);
 
 router.get("/api/getProductos", ProductoController.getProductos);
+
+//DELE
+router.post("/api/eliminarReservacion", ReservacionController.eliminarReservacion);
 
 
  module.exports = router; 

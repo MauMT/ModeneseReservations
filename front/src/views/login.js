@@ -12,7 +12,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import axios from 'axios';
 
 
 const theme = createTheme();
@@ -21,10 +21,28 @@ export default function SignInSide() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    let userData = {
       email: data.get('email'),
       password: data.get('password'),
-    });
+    }
+
+    axios.post('http://localhost:3001/api/user/login', JSON.stringify(userData), {
+      headers: {
+        'Content-Type': 'application/json'
+    }})
+    .then((response) => {
+      //handle success
+      let token = response.data.data.token;
+      console.log(token);
+      window.sessionStorage.setItem('token', token);
+      alert("Inicio de sesión exitoso");
+      window.location.href='http://localhost:3000/';
+    })
+    .catch((error) =>{
+      //handle error
+      console.log('error at logging in');
+      alert("Contraseña o correo inválidos");
+    })
   };
 
   return (

@@ -106,9 +106,23 @@ const getReservaciones = async(req, res, next) => {
     return res.json({ reservaciones });
 }
 
+const eliminarReservacion = async(req, res, next) => {
+    const reservacionId = req.body.reservacionId;
+    try{
+        await Reservacion.findByIdAndRemove(reservacionId);
+    }
+    catch(error){
+        return next(
+            new HttpError('No se pudo eliminar la reservación', 500)
+        );
+    }
+    res.status(200).json({ message: 'Reservación eliminada'});
+}
+
 module.exports = {
     crearReservacion: crearReservacion,
     actualizarEstadoReservacion: actualizarEstadoReservacion,
-    getReservaciones: getReservaciones
-    /* getPostComments: getPostComments */
+    getReservaciones: getReservaciones,
+    eliminarReservacion: eliminarReservacion
+    
 }

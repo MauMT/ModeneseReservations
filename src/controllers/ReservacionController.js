@@ -7,10 +7,11 @@ const Reservacion = require('../models/reservacion');
 
 const crearReservacion = async(req, res, next) => {
     console.log(req);
-    const {fecha, nombreCliente, estado, numPersonas, numMesa} = req.body;
+    const {fecha, horarioDefinido, nombreCliente, estado, numPersonas, numMesa} = req.body;
 
     const createdReservation = new Reservacion({
         fecha: fecha,
+        horarioDefinido: horarioDefinido,
         nombreCliente: nombreCliente,
         estado: estado,
         numPersonas: numPersonas,
@@ -21,17 +22,7 @@ const crearReservacion = async(req, res, next) => {
     // buscar si hay alguna reservacion a esa misma mesa en esa misma fecha y rango de hora
     let existingReservation;
     try{
-        existingReservation = await Reservacion.findOne({numMesa: numMesa/* , fecha: {
-            $gte: fecha,
-            $lte: {
-                $dateAdd: {
-                startDate: fecha,
-                unit: "hour",
-                amount: 2
-                }
-            }
-        } */
-    });
+        existingReservation = await Reservacion.findOne({fecha: fecha, numMesa: numMesa, horarioDefinido: horarioDefinido});
     }catch(error){
         return next(
             new HttpError('Error en la búsqueda de reservaciones', 500)
@@ -53,8 +44,9 @@ const crearReservacion = async(req, res, next) => {
         );
     }
 
-    res.status(201).json({ reservacion: createdReservation});
+    res.status(200).json({ reservacion: createdReservation});
 }
+
 /* 
 const getPostComments = async(req, res, next) => {
     const postId = req.body.postId;
@@ -81,7 +73,42 @@ const getPostComments = async(req, res, next) => {
 
 } */
 
+const actualizarEstadoReservacion = async(req, res, next) => {
+    //es posible hacer esto usando la fecha, hora y mesa
+    const reservacionId = req.body.reservacionId;
+    const nuevoEstado = req.body.estado;
+    
+    const reservacion = await Reservacion.findById(reservacionId);
+    
+
+    //update reservacion state
+    reservacion.estado = nuevoEstado;
+    try{
+        await reservacion.save();
+    }
+    catch(error){
+        return next(
+            new HttpError('No se pudo actualizar el estado de la reservación', 500)
+        );
+    }
+    res.status(200).json({ reservacion: reservacion});
+}
+
+const getReservaciones = async(req, res, next) => {
+    let reservaciones;
+    try {
+        reservaciones = await Reservacion.find();
+    } catch (error) {
+        return next(
+            new HttpError('Error fetching reservaciones', 500)
+        );
+    }
+    return res.json({ reservaciones });
+}
+
 module.exports = {
     crearReservacion: crearReservacion,
+    actualizarEstadoReservacion: actualizarEstadoReservacion,
+    getReservaciones: getReservaciones
     /* getPostComments: getPostComments */
 }

@@ -4,16 +4,17 @@ const mongoose = require('mongoose');
 
 const HttpError = require('../models/http-error');
 const Producto = require('../models/producto');
-const Orden = require('../models/orden');
+const Orden = require('../models/Orden');
 
 
 const crearProducto = async(req, res, next) => {
-    const {nombreProducto, imagen, precio} = req.body;
+    const {nombreProducto, imagen, precio, descripcion} = req.body;
 
     const createdProduct = new Producto({
         nombreProducto: nombreProducto,
         imagen: imagen,
-        precio: precio
+        precio: precio,
+        descripcion: descripcion
     })
 
     
@@ -25,7 +26,7 @@ const crearProducto = async(req, res, next) => {
         );
     }
 
-    res.status(201).json({post: createdPost});
+    res.status(200).json({producto: createdProduct});
 }
 
 //verificarcomo obtener el id
@@ -66,31 +67,22 @@ const agregarProductoOrden = async(req, res, next) => {
     res.status(201).json({post: createdPost});
 }
 
-/* const getPostsByUserId = async (req, res, next) => {
-    const userEmail = req.body.email;
-    
-    //deberia de haber validaciones de que existe correo, etc...
-    let postsFound;
+
+const getProductos = async(req, res, next) => {
+    let productos;
     try {
-        postsFound = await Post.find({correo: req.body.email})
+        productos = await Producto.find();
     } catch (error) {
         return next(
-            new HttpError('Fetching posts failed!', 500)
+            new HttpError('Error fetching productos', 500)
         );
     }
+    return res.json({ productos });
+}
 
-    if(!postsFound){
-        return next(
-            new HttpError('Could not find posts for the provided email.', 404)
-          );
-    }
-
-    res.status(200).json({
-        posts: postsFound
-    });
-} */
 
 module.exports = {
     agregarProductoOrden: agregarProductoOrden,
-    crearProducto: crearProducto
+    crearProducto: crearProducto,
+    getProductos: getProductos
 }

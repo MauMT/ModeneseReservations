@@ -14,6 +14,11 @@ import axios from 'axios';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import HOUR_GROUP from '../config/constants/horas.js'
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 //import TableRestaurantIcon from '@mui/icons-material/TableRestaurant';
 //import ButtonGroup from 'react-bootstrap/ButtonGroup'
@@ -31,6 +36,8 @@ function Copyright() {
     </Typography>
   );
 }
+
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -59,17 +66,24 @@ const Contact = () => {
   const classes = useStyles();
   const [nombre, setNombre] = useState("")
   const [apellido, setApellido] = useState("")
-  const [horario, setHorario] = useState(0)
   const [fecha, setFecha] = useState(new Date())
   const [personas, setPersonas] = useState(0)
   const [mesa, setMesa] = useState(0)
+
+
+  const [horario, setHorario] = React.useState('');
+
+  const handleChange = (event) => {
+    setHorario(event.target.value);
+  };
+
 
   function handleSubmit(e) {
     e.preventDefault()
     console.log("hola",fecha)
     axios.post('http://localhost:3001/api/crearReservacion', {
       fecha: fecha,
-      horarioDefinido: 1,
+      horarioDefinido: horario,
       nombreCliente: nombre + " " + apellido,
       numPersonas: personas,
       numMesa: mesa
@@ -110,18 +124,79 @@ const Contact = () => {
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField variant="outlined" required fullWidth label="Telefono" />
+              <TextField 
+                variant="outlined" 
+                required fullWidth label="Telefono" />
             </Grid>
-            <Grid item xs={12}>
-              <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" onChange={e => {setPersonas(e.target.value); console.log(personas)}} required fullWidth label="Número de personas" />
+
+              <Grid item xs={12} sm={6}>
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    label="Fecha"
+                    value={fecha}
+                    sx = {{width: 2/3}}
+                    onChange={(newValue) => {
+                      setFecha(newValue);
+                    }}
+                    
+                    renderInput={(params) => <TextField {...params} 
+                    style ={{width: '95%'}} />}
+                  />
+                </LocalizationProvider>
+              </Grid>
+              
+              <Grid item xs={12} sm={6}>
+                {/* <TextField 
+                  type="number" 
+                  inputProps={{ min: 1, max: 10 }} 
+                  variant="outlined" 
+                  onChange={e => {setHorario(e.target.value); console.log(horario)}}
+                  required fullWidth label="Horario" 
+                  /> */}
+                  
+                  <Box sx={{ minWidth: 120 }}>
+                    <FormControl fullWidth>
+                      <InputLabel id="demo-simple-select-label">Horario</InputLabel>
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={horario}
+                        label="Horario"
+                        onChange={e => 
+                          {setHorario(e.target.value); 
+                          console.log(horario)}}
+                      >
+                        {Object.entries(HOUR_GROUP).map(([key, value]) => (
+                          <MenuItem key={key} value={key}> {value} </MenuItem>
+                        ))}
+                        
+                      </Select>
+                    </FormControl>
+                  </Box>
+
+              </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <TextField type="number" 
+                inputProps={{ min: 1, max: 10 }} 
+                variant="outlined" 
+                onChange={e => 
+                  {setPersonas(e.target.value); 
+                  console.log(personas)}} 
+                required fullWidth 
+                label="Número de personas" />
             </Grid>
-            <Grid item xs={12}>
-              <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" onChange={e => {setMesa(e.target.value); console.log(mesa)}} required fullWidth label="Número de mesa" />
+            <Grid item xs={12} sm={6}>
+              <TextField 
+                type="number" 
+                inputProps={{ min: 1, max: 10 }} 
+                variant="outlined" 
+                onChange={e => 
+                  {setMesa(e.target.value); 
+                  console.log(mesa)}} 
+                required fullWidth label="Número de mesa" />
             </Grid>
-            <Grid item xs={12}>
-              <TextField type="number" inputProps={{ min: 1, max: 10 }} variant="outlined" onChange={e => {setHorario(e.target.value); console.log(horario)}} required fullWidth label="Horario" />
-            </Grid>
-            
+                       
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -130,19 +205,9 @@ const Contact = () => {
                 multiline
                 rows={5}
                 autoComplete="none"
-                label="Detalles de la reservación"
+                label="Notas adicionales"
               />
             </Grid>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <DatePicker
-                label="Basic example"
-                value={fecha}
-                onChange={(newValue) => {
-                  setFecha(newValue);
-                }}
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </LocalizationProvider>
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox color="primary" />}

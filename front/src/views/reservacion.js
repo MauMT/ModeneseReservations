@@ -139,7 +139,7 @@ const Contact = () => {
                     }}
                     
                     renderInput={(params) => <TextField {...params} 
-                    style ={{width: '95%'}} />}
+                    style ={{width: '95%', marginLeft: '1.3%'}} />}
                   />
                 </LocalizationProvider>
               </Grid>

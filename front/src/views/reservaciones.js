@@ -59,13 +59,13 @@ const Reservaciones = () => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Nombre cliente</TableCell>
-            <TableCell align="right">Fecha</TableCell>
+            <TableCell>Nombre del cliente</TableCell>
+            <TableCell align="center">Fecha</TableCell>
             <TableCell align="right">Horario definido</TableCell>
             <TableCell align="right">Número de personas</TableCell>
             <TableCell align="right">Número de mesa</TableCell>
             <TableCell align="right">Estado</TableCell>
-            <TableCell align="right">Borrar</TableCell>
+            <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

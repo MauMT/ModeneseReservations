@@ -14,8 +14,8 @@ const routes = [
     component: Home,
   },
   {
-    name: 'Productos',
-    ruta: '/productos',
+    name: 'Menú',
+    ruta: '/menu',
     component: Products,
   },
   {

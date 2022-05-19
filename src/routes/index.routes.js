@@ -56,6 +56,7 @@ router.get("/api/getReservaciones", ReservacionController.getReservaciones);
 
 router.get("/api/getProductos", ProductoController.getProductos);
 
+router.get("/api/getReservacionesActuales", ReservacionController.getReservacionesActuales);
 
 
  module.exports = router; 

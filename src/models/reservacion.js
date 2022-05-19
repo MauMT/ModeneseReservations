@@ -15,7 +15,7 @@ var reservacionSchema = new Schema({
         get: v => Math.round(v),
         set: v => Math.round(v),
         required: true,
-        enum: {values: [1, 2, 3, 4, 5], message: '{VALUE} no es un horario definido válido'},
+        enum: {values: [1, 2, 3, 4, 5, 6, 7], message: '{VALUE} no es un horario definido válido'},
     },
     nombreCliente: {
         type: String,

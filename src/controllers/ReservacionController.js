@@ -1,9 +1,8 @@
-const { validationResult } = require('express-validator');
 const mongoose = require('mongoose');
 
 const HttpError = require('../models/http-error');
 const Reservacion = require('../models/reservacion');
-
+const moment = require('moment')
 
 const crearReservacion = async(req, res, next) => {
     console.log(req);
@@ -18,8 +17,8 @@ const crearReservacion = async(req, res, next) => {
         numMesa: numMesa
     });
 
-    //validar fecha y hora para evitar overlap de reservaciones y mesa
-    // buscar si hay alguna reservacion a esa misma mesa en esa misma fecha y rango de hora
+    // valida fecha y hora para evitar overlap de reservaciones y mesa
+    // busca si hay alguna reservacion a esa misma mesa en esa misma fecha y rango de hora
     let existingReservation;
     try{
         existingReservation = await Reservacion.findOne({fecha: fecha, numMesa: numMesa, horarioDefinido: horarioDefinido});
@@ -119,10 +118,25 @@ const eliminarReservacion = async(req, res, next) => {
     res.status(200).json({ message: 'Reservación eliminada'});
 }
 
+const today = moment().startOf('day')
+const getReservacionesActuales = async(req, res, next) => {
+    let reservaciones;
+    try {
+        reservaciones = await Reservacion.find({fecha: {$gte: today.toDate()}});
+    }catch (error) {
+        return next(
+            new HttpError('Error fetching reservaciones', 500)
+        );
+    }
+    return res.json({ reservaciones });
+}
+
+
 module.exports = {
     crearReservacion: crearReservacion,
     actualizarEstadoReservacion: actualizarEstadoReservacion,
     getReservaciones: getReservaciones,
-    eliminarReservacion: eliminarReservacion
+    eliminarReservacion: eliminarReservacion,
+    getReservacionesActuales: getReservacionesActuales
     
 }

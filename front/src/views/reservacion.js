@@ -19,7 +19,6 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-
 //import TableRestaurantIcon from '@mui/icons-material/TableRestaurant';
 //import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
@@ -36,7 +35,6 @@ function Copyright() {
     </Typography>
   );
 }
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -61,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
 const Contact = () => {
   const classes = useStyles();
   const [nombre, setNombre] = useState("")
@@ -77,11 +74,15 @@ const Contact = () => {
     setHorario(event.target.value);
   };
 
-
+  let dia = fecha.getDate()
+  let mes = fecha.getMonth()
+  let año = fecha.getFullYear()
+  var fecha_string = año + "-" + mes + "-" + dia 
   function handleSubmit(e) {
     e.preventDefault()
+    console.log(fecha.getDay())
     axios.post('http://localhost:3001/api/crearReservacion', {
-      fecha: fecha,
+      fecha: fecha_string,
       horarioDefinido: horario,
       nombreCliente: nombre + " " + apellido,
       numPersonas: personas,
@@ -125,7 +126,7 @@ const Contact = () => {
             <Grid item xs={12}>
               <TextField 
                 variant="outlined" 
-                required fullWidth label="Telefono" />
+                required fullWidth label="Teléfono" />
             </Grid>
 
               <Grid item xs={12} sm={6}>

@@ -61,8 +61,10 @@ const Menu = () => {
   useEffect(() => {
     if(!window.sessionStorage.getItem('token')){
       setRutas(routes.filter(elem => (elem.name != 'Reservaciones' && elem.name != 'Login')));
+    } else {
+      setRutas(routes.filter(elem => (elem.name != 'Login'))); 
     }
-  })
+  }, [])
 
   const handleChange = (_event, newValue) => {
     setValue(newValue);

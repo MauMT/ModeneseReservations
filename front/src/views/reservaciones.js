@@ -9,10 +9,17 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import axios from 'axios'
 import Button from '@mui/material/Button';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 
 
 // ruta para el boton de borrar
 let rutaDelete = 'http://localhost:3001/api/admin/eliminarReservacion'
+let rutaEstado = 'http://localhost:3001/api/actualizarEstadoReservacion'
 var adminHeader = { headers: {"Access-Control-Allow-Origin": "*",
 "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, auth-token',
@@ -21,9 +28,7 @@ var adminHeader = { headers: {"Access-Control-Allow-Origin": "*",
 const Reservaciones = () => {
 
   const [reservaciones, setReservaciones] = useState([]);
-
   useEffect(() => {
-    
     axios.get('http://localhost:3001/api/getReservaciones')
     .then(function (response) {
       //handle success
@@ -34,9 +39,7 @@ const Reservaciones = () => {
       //handle error
       console.log('error retrieving data');
     })
-
-
-  }, [])
+  },[])
 
   const handleClickDelete = (e, id) => {
     console.log(id)
@@ -53,6 +56,27 @@ const Reservaciones = () => {
       console.log(error.response);
     }); 
   } 
+
+  const handleEstadoChange = (e, id, idx) => {
+    // hacer el request
+    axios.post(rutaEstado, {
+      reservacionId: id,
+      estado: e.target.value
+    })
+    .then(function (response) {
+      console.log("estado actualizado a " + e.target.value)
+      console.log(response);
+      setReservaciones(reservaciones.map((r, i) => {
+        if (i == idx) {
+          r.estado = e.target.value
+        }
+        return r;
+      }))
+    })
+    .catch(function (error) {
+      console.log(error.response)
+    })
+  }
   
   return (
     <TableContainer component={Paper}>
@@ -69,7 +93,7 @@ const Reservaciones = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {reservaciones.map((row) => (
+          {reservaciones.map((row, idx) => (
             <TableRow
               key={row._id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -81,7 +105,22 @@ const Reservaciones = () => {
               <TableCell align="right">{row.horarioDefinido}</TableCell>
               <TableCell align="right">{row.numPersonas}</TableCell>
               <TableCell align="right">{row.numMesa}</TableCell>
-              <TableCell align="right">{row.estado}</TableCell>
+              <TableCell align="right">
+              <FormControl sx={{ m: 1, minWidth: 120 }}>
+                <Select
+                  value={reservaciones[idx].estado}
+                  onChange={(e) => handleEstadoChange(e, row._id, idx)}
+                  displayEmpty
+                  inputProps={{ 'aria-label': 'Without label' }}
+                >
+                  <MenuItem value={'Pendiente'}>Pendiente</MenuItem>
+                  <MenuItem value={'Aceptada'}>Aceptada</MenuItem>
+                  <MenuItem value={'Cerrada'}>Cerrada</MenuItem>
+                  <MenuItem value={'Cancelada'}>Cancelada</MenuItem>
+                </Select>
+                {/* <FormHelperText>Without label</FormHelperText> */}
+              </FormControl>
+              </TableCell>
               <TableCell align="right">
                 <Button variant="outlined"
                     style={{

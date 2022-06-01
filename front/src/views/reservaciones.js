@@ -14,8 +14,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-
-
+import HOUR_GROUP from '../config/constants/horas.js'
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
 // ruta para el boton de borrar
 let rutaDelete = 'http://localhost:3001/api/admin/eliminarReservacion'
@@ -26,10 +27,12 @@ var adminHeader = { headers: {"Access-Control-Allow-Origin": "*",
  "auth-token": sessionStorage.getItem("token")}}
 
 const Reservaciones = () => {
-
+  const [open, setOpen] = useState(false);
+  // true es la de success
+  const [alertType, setAlertType] = useState(true);
   const [reservaciones, setReservaciones] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:3001/api/getReservaciones')
+    axios.get('http://localhost:3001/api/getReservacionesActuales')
     .then(function (response) {
       //handle success
       setReservaciones(response.data.reservaciones)
@@ -49,13 +52,24 @@ const Reservaciones = () => {
     .then(function (response) {
       console.log(response);
       // borrar de reservaciones el 
-      alert("Reservación borrada exitosamente")
+      setAlertType(true)
+      setOpen(true)
       setReservaciones(reservaciones.filter(r => r._id != id))
     })
     .catch(function (error) {
+      setAlertType(false)
+      setOpen(true)
       console.log(error.response);
     }); 
   } 
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   const handleEstadoChange = (e, id, idx) => {
     // hacer el request
@@ -101,8 +115,8 @@ const Reservaciones = () => {
               <TableCell component="th" scope="row">
                 {row.nombreCliente}
               </TableCell>
-              <TableCell align="right">{row.fecha}</TableCell>
-              <TableCell align="right">{row.horarioDefinido}</TableCell>
+              <TableCell align="right">{row.fecha.substring(0, 10)}</TableCell>
+              <TableCell align="right">{HOUR_GROUP[row.horarioDefinido]}</TableCell>
               <TableCell align="right">{row.numPersonas}</TableCell>
               <TableCell align="right">{row.numMesa}</TableCell>
               <TableCell align="right">
@@ -133,7 +147,20 @@ const Reservaciones = () => {
             </TableRow>
           ))}
         </TableBody>
+        
       </Table>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                    
+                    {alertType
+                      ? <Alert onClose={handleClose} severity="success" sx={{ width: '98vw' }}>
+                          ¡Reservación borrada exitosamente! 🔥
+                        </Alert>
+                      : <Alert onClose={handleClose} severity="error" sx={{ width: '98vw' }}>
+                          Error al borrar reservación 💀
+                        </Alert>
+                    }
+  </Snackbar>
+      
     </TableContainer>
   );
 }

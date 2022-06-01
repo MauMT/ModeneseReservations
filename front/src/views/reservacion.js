@@ -81,8 +81,9 @@ const Contact = () => {
   };
 
   let dia = fecha.getDate()
-  let mes = fecha.getMonth()
+  let mes = fecha.getMonth() + 1
   let año = fecha.getFullYear()
+  console.log("dia",mes)
   var fecha_string = año + "-" + mes + "-" + dia 
 
   function clearFields() {
@@ -97,6 +98,7 @@ const Contact = () => {
   function handleSubmit(e) {
     e.preventDefault()
     console.log(fecha.getDay())
+    console.log("fecha string", fecha_string)
     axios.post('http://localhost:3001/api/crearReservacion', {
       fecha: fecha_string,
       horarioDefinido: horario,
@@ -167,6 +169,7 @@ const Contact = () => {
                     sx = {{width: 2/3}}
                     onChange={(newValue) => {
                       setFecha(newValue);
+                      console.log("nuevo mes", newValue.getMonth())
                     }}
                     
                     renderInput={(params) => <TextField {...params} 
@@ -243,10 +246,10 @@ const Contact = () => {
             
             {alertType
               ? <Alert onClose={handleClose} severity="success" sx={{ width: '98vw' }}>
-                  ¡Reservación creada exitosamente! 🔥
+                  ¡Reservación borrada exitosamente! 🔥
                 </Alert>
               : <Alert onClose={handleClose} severity="error" sx={{ width: '98vw' }}>
-                  ¡Error al crear reservación! 💀
+                  Error al crear reservación 💀
                 </Alert>
             }
           </Snackbar>

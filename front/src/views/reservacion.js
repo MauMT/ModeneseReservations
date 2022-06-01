@@ -19,6 +19,9 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
+
 //import TableRestaurantIcon from '@mui/icons-material/TableRestaurant';
 //import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
@@ -66,7 +69,10 @@ const Contact = () => {
   const [fecha, setFecha] = useState(new Date())
   const [personas, setPersonas] = useState(0)
   const [mesa, setMesa] = useState(0)
+  const [open, setOpen] = useState(false);
 
+  // true es la de success
+  const [alertType, setAlertType] = useState(true);
 
   const [horario, setHorario] = React.useState('');
 
@@ -78,6 +84,16 @@ const Contact = () => {
   let mes = fecha.getMonth()
   let año = fecha.getFullYear()
   var fecha_string = año + "-" + mes + "-" + dia 
+
+  function clearFields() {
+    setNombre("")
+    setApellido("")
+    setFecha(new Date())
+    setPersonas(0)
+    setMesa(0)
+    setHorario('')
+  }
+
   function handleSubmit(e) {
     e.preventDefault()
     console.log(fecha.getDay())
@@ -89,12 +105,26 @@ const Contact = () => {
       numMesa: mesa
     })
     .then(function (response) {
+      setAlertType(true)
+      setOpen(true)
       console.log(response);
     })
     .catch(function (error) {
+      setAlertType(false)
+      setOpen(true)
       console.log(error);
     });
+    e.target.reset();
+    clearFields();
   }
+  
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   return (
     <Container component="main" maxWidth="md">
@@ -209,6 +239,17 @@ const Contact = () => {
           >
             Reservar
           </Button>
+          <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            
+            {alertType
+              ? <Alert onClose={handleClose} severity="success" sx={{ width: '98vw' }}>
+                  ¡Reservación creada exitosamente! 🔥
+                </Alert>
+              : <Alert onClose={handleClose} severity="error" sx={{ width: '98vw' }}>
+                  ¡Error al crear reservación! 💀
+                </Alert>
+            }
+          </Snackbar>
         </form>
       </Paper>
       <Box mt={5}>

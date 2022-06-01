@@ -96,7 +96,7 @@ const actualizarEstadoReservacion = async(req, res, next) => {
 const getReservaciones = async(req, res, next) => {
     let reservaciones;
     try {
-        reservaciones = await Reservacion.find();
+        reservaciones = await Reservacion.find().sort({fecha : -1, horarioDefinido: -1});
     } catch (error) {
         return next(
             new HttpError('Error fetching reservaciones', 500)
@@ -118,11 +118,11 @@ const eliminarReservacion = async(req, res, next) => {
     res.status(200).json({ message: 'Reservación eliminada'});
 }
 
-const today = moment().startOf('day')
 const getReservacionesActuales = async(req, res, next) => {
+    const today = moment().startOf('day') 
     let reservaciones;
     try {
-        reservaciones = await Reservacion.find({fecha: {$gte: today.toDate()}});
+        reservaciones = await Reservacion.find({fecha: {$gte: today.toDate()}}).sort({fecha : -1, horarioDefinido: -1});
     }catch (error) {
         return next(
             new HttpError('Error fetching reservaciones', 500)

@@ -1,12 +1,8 @@
 import {
-  Typography,
   makeStyles,
   Container,
   Grid,
-  Card,
-  CardMedia,
-  CardContent,
-  IconButton,
+  Button,
 } from '@material-ui/core';
 import React, { useState } from 'react';
 //import productos from '../config/productos.json';
@@ -36,17 +32,29 @@ axios.get('http://localhost:3001/api/getProductos')
 
 const Productos = () => {
   const style = styles();
-  const [count, setCount] = useState([]);
+  var productosCart = {}
+  const [selectedProducto, setSelectedProducto] = useState();
+  const setProducto = (nombre, amount) => {
+    productosCart[nombre] = amount;
+  }
+  products.forEach(producto => {
+    productosCart[producto.nombreProducto] = 0;
+  });
   return (
+    <>
     <Container className={style.cardGrid} maxWidth="md">
       <Grid container spacing={6}>
         {products.map((producto) => (
           <Grid item key={producto.nombreProducto} xs={12} sm={6} md={4}>
-            <Producto {...producto}></Producto>
+            <Producto producto={producto} setSelectedProducto={setProducto}></Producto>
           </Grid>
         ))}
       </Grid>
     </Container>
+    <Button onClick={() => {console.log(productosCart)}}>
+          Checkout
+    </Button>
+    </>
   );
 };
 

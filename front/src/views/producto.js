@@ -9,7 +9,7 @@ import {
   import { useState } from 'react';
 
 
-export default function Producto (producto) {
+export default function Producto ({producto, setSelectedProducto}) {
   const style = makeStyles((theme) => ({
     card: {
       height: '100%',
@@ -27,11 +27,13 @@ export default function Producto (producto) {
   const [count, setCount] = useState(0);
   const incrementCount = () => {
     setCount(count+1);
+    setSelectedProducto(producto.nombreProducto, count + 1)
   }
   const decreaseCount = () => {
     if (count > 0) 
     {
       setCount(count-1);
+      setSelectedProducto(producto.nombreProducto, count - 1)
     }
   }
   return (

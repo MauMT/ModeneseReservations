@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Producto = () => {
+const CrearProducto = () => {
   const [open, setOpen] = useState(false);
   const classes = useStyles();
   const [nombre, setNombre] = useState("")
@@ -164,4 +164,4 @@ const Producto = () => {
   );
 };
 
-export default Producto;
+export default CrearProducto;

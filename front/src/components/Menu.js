@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import { Home, Producto, Products, Sucursales, Contact, Promociones, Reservaciones, Login } from '../views';
+import { Home, CrearProducto, Products, Sucursales, Contact, Promociones, Reservaciones, Login } from '../views';
 
 import { Grid, Tab, Tabs } from '@material-ui/core';
 
@@ -43,9 +43,9 @@ const routes = [
     component: Login,
   },
   {
-    name: 'Producto',
-    ruta: '/producto',
-    component: Producto,
+    name: 'Crear Producto',
+    ruta: '/crearProducto',
+    component: CrearProducto,
   }
 ];
 
@@ -64,7 +64,7 @@ const Menu = () => {
   const [rutas, setRutas] = React.useState(routes);
   useEffect(() => {
     if(!window.sessionStorage.getItem('token')){
-      setRutas(routes.filter(elem => (elem.name != 'Reservaciones' && elem.name != 'Login' && elem.name != 'Producto')));
+      setRutas(routes.filter(elem => (elem.name != 'Reservaciones' && elem.name != 'Login' && elem.name != 'Crear Producto')));
     } else {
       setRutas(routes.filter(elem => (elem.name != 'Login'))); 
     }

@@ -47,7 +47,7 @@ const Productos = () => {
       console.log('error retrieving data');
     })
     }
-  )
+  ,[])
   return (
     <Container className={style.cardGrid} maxWidth="md">
       <Grid container spacing={6}>

@@ -246,7 +246,7 @@ const Contact = () => {
             
             {alertType
               ? <Alert onClose={handleClose} severity="success" sx={{ width: '98vw' }}>
-                  ¡Reservación borrada exitosamente! 🔥
+                  ¡Reservación creada exitosamente! 🔥
                 </Alert>
               : <Alert onClose={handleClose} severity="error" sx={{ width: '98vw' }}>
                   Error al crear reservación 💀

@@ -44,9 +44,6 @@ app.use('/api/admin', validateToken, userRoutes);
 app.use("/", require("./routes/index.routes"));
 
 
-//  ============= STATIC FILES
-
-
 // Starting the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

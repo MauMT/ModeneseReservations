@@ -1,1 +1,1 @@
-web: sh -c 'npm run dev && cd ./front && npm start'
+web: npm run dev && cd ./front && npm start

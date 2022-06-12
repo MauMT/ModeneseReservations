@@ -36,7 +36,8 @@ router.post("/api/crearHorario",  async(req, res, next) => {
     } catch (error) {
         console.log(error);
         return next(
-            new HttpError('Error al crear horario', 500)
+            //new HttpError('Error al crear horario', 500)
+            res.status(400).send("Error al crear horario")
         );
     }
 

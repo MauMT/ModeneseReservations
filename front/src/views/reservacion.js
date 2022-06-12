@@ -25,7 +25,6 @@ import Alert from '@mui/material/Alert';
 //import TableRestaurantIcon from '@mui/icons-material/TableRestaurant';
 //import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -220,14 +219,34 @@ const Contact = () => {
                 label="Número de personas" />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TextField 
-                type="number" 
-                inputProps={{ min: 1, max: 10 }} 
-                variant="outlined" 
-                onChange={e => 
-                  {setMesa(e.target.value); 
-                  console.log(mesa)}} 
-                required fullWidth label="Número de mesa" />
+              {/* <TextField 
+                  type="number" 
+                  inputProps={{ min: 1, max: 10 }} 
+                  variant="outlined" 
+                  onChange={e => {setHorario(e.target.value); console.log(horario)}}
+                  required fullWidth label="Horario" 
+                  /> */}
+                  
+                  <Box sx={{ minWidth: 120 }}>
+                    <FormControl fullWidth>
+                      <InputLabel id="demo-simple-select-label">Número de mesa</InputLabel>
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={mesa}
+                        label="Número de mesa"
+                        onChange={e => 
+                          {setMesa(e.target.value); 
+                          console.log(mesa)}}
+                      >
+                          <MenuItem value={1}> 1 </MenuItem>
+                          <MenuItem value={2}> 2 </MenuItem>
+                          <MenuItem value={3}> 3 </MenuItem>
+                          <MenuItem value={4}> 4 </MenuItem> 
+                        
+                      </Select>
+                    </FormControl>
+                  </Box>
             </Grid>
             
           </Grid>

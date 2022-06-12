@@ -52,7 +52,7 @@ const Sucursales = () => {
                 <CardMedia
                   className={classes.media}
                   image={sucursal.image}
-                  title="Contemplative Reptile"
+                  title="Rigatoni a la rueda"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
@@ -74,11 +74,6 @@ const Sucursales = () => {
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary">
-                  Llamar
-                </Button>
-              </CardActions>
             </Card>
           </Grid>
         ))}

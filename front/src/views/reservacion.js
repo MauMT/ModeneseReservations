@@ -219,14 +219,6 @@ const Contact = () => {
                 label="Número de personas" />
             </Grid>
             <Grid item xs={12} sm={6}>
-              {/* <TextField 
-                  type="number" 
-                  inputProps={{ min: 1, max: 10 }} 
-                  variant="outlined" 
-                  onChange={e => {setHorario(e.target.value); console.log(horario)}}
-                  required fullWidth label="Horario" 
-                  /> */}
-                  
                   <Box sx={{ minWidth: 120 }}>
                     <FormControl fullWidth>
                       <InputLabel id="demo-simple-select-label">Número de mesa</InputLabel>

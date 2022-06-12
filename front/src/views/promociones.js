@@ -52,7 +52,7 @@ const Promociones = () => {
                 ))}
               </CardContent>
               <CardActions>
-                <Typography key={index}>{promo.expiry}</Typography>
+                <Typography variant="subtitle2" key={index}>{promo.expiry}</Typography>
               </CardActions>
             </Card>
           </Grid>

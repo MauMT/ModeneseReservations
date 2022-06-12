@@ -99,7 +99,7 @@ const CrearProducto = () => {
                 variant="outlined"
                 required
                 fullWidth
-                label="Nombre producto"
+                label="Nombre del producto"
                 autoFocus
                 onChange={e => setNombre(e.target.value)}
               />
@@ -109,7 +109,7 @@ const CrearProducto = () => {
                 variant="outlined"
                 required
                 fullWidth
-                label="Link imagen"
+                label="Link de la imagen"
                 onChange={e => setImagen(e.target.value)}
               />
             </Grid>

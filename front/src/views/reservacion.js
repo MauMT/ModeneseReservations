@@ -79,10 +79,10 @@ const Contact = () => {
     setHorario(event.target.value);
   };
 
-  let dia = fecha.getDate()
-  let mes = fecha.getMonth() + 1
+  let dia = fecha.getDate() <= 9 ? "0" + fecha.getDate() : fecha.getDate();
+  let mes = fecha.getMonth() + 1 <= 9 ? "0" + (fecha.getMonth() + 1) : fecha.getMonth() + 1
   let año = fecha.getFullYear()
-  console.log("dia",mes)
+  //console.log("dia",mes)
   var fecha_string = año + "-" + mes + "-" + dia 
 
   function clearFields() {
@@ -96,8 +96,13 @@ const Contact = () => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(fecha.getDay())
-    console.log("fecha string", fecha_string)
+    //console.log(fecha.getDay())
+    //console.log("fecha string", fecha_string)
+    var today = new Date().toISOString().split('T')[0]
+    console.log('Fecha Today: ', today);
+    console.log('Fecha res: ', fecha_string);
+    console.log('Fecha atras?: ', fecha_string < today);
+
     axios.post('https://modenese-server.herokuapp.com/api/crearReservacion', {
       fecha: fecha_string,
       horarioDefinido: horario,
@@ -108,12 +113,12 @@ const Contact = () => {
     .then(function (response) {
       setAlertType(true)
       setOpen(true)
-      console.log(response);
+      //console.log(response);
+      
     })
     .catch(function (error) {
       setAlertType(false)
       setOpen(true)
-      console.log(error);
     });
     e.target.reset();
     clearFields();
@@ -168,7 +173,7 @@ const Contact = () => {
                     sx = {{width: 2/3}}
                     onChange={(newValue) => {
                       setFecha(newValue);
-                      console.log("nuevo mes", newValue.getMonth())
+                      //console.log("nuevo mes", newValue.getMonth())
                     }}
                     
                     renderInput={(params) => <TextField {...params} 
@@ -196,7 +201,8 @@ const Contact = () => {
                         label="Horario"
                         onChange={e => 
                           {setHorario(e.target.value); 
-                          console.log(horario)}}
+                          //console.log(horario)
+                        }}
                       >
                         {Object.entries(HOUR_GROUP).map(([key, value]) => (
                           <MenuItem key={key} value={key}> {value} </MenuItem>
@@ -214,7 +220,8 @@ const Contact = () => {
                 variant="outlined" 
                 onChange={e => 
                   {setPersonas(e.target.value); 
-                  console.log(personas)}} 
+                  //console.log(personas)
+                }} 
                 required fullWidth 
                 label="Número de personas" />
             </Grid>
@@ -229,7 +236,8 @@ const Contact = () => {
                         label="Número de mesa"
                         onChange={e => 
                           {setMesa(e.target.value); 
-                          console.log(mesa)}}
+                          //console.log(mesa)
+                        }}
                       >
                           <MenuItem value={1}> 1 </MenuItem>
                           <MenuItem value={2}> 2 </MenuItem>

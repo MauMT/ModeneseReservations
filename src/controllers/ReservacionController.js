@@ -16,6 +16,7 @@ const crearReservacion = async(req, res, next) => {
         numPersonas: numPersonas,
         numMesa: numMesa
     });
+    console.log('Q')
 
     // valida fecha y hora para evitar overlap de reservaciones y mesa
     // busca si hay alguna reservacion a esa misma mesa en esa misma fecha y rango de hora
@@ -36,21 +37,16 @@ const crearReservacion = async(req, res, next) => {
         );
     }
 
-    
-    try{
-        if(fecha <= moment().format('YYYY-MM-DD')){
-            console.log("La fecha de la reservacion ya pasó");
-            return next(
-                new HttpError('La fecha de la reservación ya pasó', 422)
-            );
-        }
-    }catch(error){
-        console.log("Error en la validacion de fecha", error);
+    // Funcion para no permitir reservaciones en fecha anterior a la actual
+    var today = new Date().toISOString().split('T')[0]
+    console.log('Fecha Today: ', today);
+     
+    if(fecha < today){
+        console.log("No se puede reservar en fechas anteriores a la actual");
         return next(
-            new HttpError('Error en la validación de fecha', 500)
+            new HttpError('No se puede reservar en fechas anteriores a la actual', 422)
         );
     }
-
 
     try {
         await createdReservation.save();

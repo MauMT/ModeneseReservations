@@ -67,7 +67,7 @@ const Contact = () => {
   const [apellido, setApellido] = useState("")
   const [fecha, setFecha] = useState(new Date())
   const [personas, setPersonas] = useState(0)
-  const [mesa, setMesa] = useState(0)
+  const [mesa, setMesa] = useState('')
   const [open, setOpen] = useState(false);
 
   // true es la de success
@@ -183,17 +183,10 @@ const Contact = () => {
               </Grid>
               
               <Grid item xs={12} sm={6}>
-                {/* <TextField 
-                  type="number" 
-                  inputProps={{ min: 1, max: 10 }} 
-                  variant="outlined" 
-                  onChange={e => {setHorario(e.target.value); console.log(horario)}}
-                  required fullWidth label="Horario" 
-                  /> */}
                   
                   <Box sx={{ minWidth: 120 }}>
                     <FormControl fullWidth>
-                      <InputLabel id="demo-simple-select-label">Horario</InputLabel>
+                      <InputLabel id="demo-simple-select-label">Horario *</InputLabel>
                       <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
@@ -226,9 +219,10 @@ const Contact = () => {
                 label="Número de personas" />
             </Grid>
             <Grid item xs={12} sm={6}>
+                  
                   <Box sx={{ minWidth: 120 }}>
                     <FormControl fullWidth>
-                      <InputLabel id="demo-simple-select-label">Número de mesa</InputLabel>
+                      <InputLabel id="demo-simple-select-label">Número de mesa *</InputLabel>
                       <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
@@ -236,18 +230,19 @@ const Contact = () => {
                         label="Número de mesa"
                         onChange={e => 
                           {setMesa(e.target.value); 
-                          //console.log(mesa)
+                          //console.log(horario)
                         }}
                       >
-                          <MenuItem value={1}> 1 </MenuItem>
-                          <MenuItem value={2}> 2 </MenuItem>
-                          <MenuItem value={3}> 3 </MenuItem>
-                          <MenuItem value={4}> 4 </MenuItem> 
-                          <MenuItem value={5}> 5 </MenuItem>
+                        <MenuItem key={1} value={1}> 1 </MenuItem>
+                        <MenuItem key={2} value={2}> 2 </MenuItem>
+                        <MenuItem key={3} value={3}> 3 </MenuItem>
+                        <MenuItem key={4} value={4}> 4 </MenuItem>
+                        <MenuItem key={5} value={5}> 5 </MenuItem>                        
                       </Select>
                     </FormControl>
                   </Box>
-            </Grid>
+
+              </Grid>
             
           </Grid>
           <br/>

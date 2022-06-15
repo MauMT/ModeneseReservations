@@ -26,7 +26,7 @@ export default function SignInSide() {
       password: data.get('password'),
     }
 
-    axios.post('http://localhost:3001/api/user/login', JSON.stringify(userData), {
+    axios.post('https://modenese-server.herokuapp.com/api/user/login', JSON.stringify(userData), {
       headers: {
         'Content-Type': 'application/json'
     }})

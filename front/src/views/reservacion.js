@@ -98,7 +98,7 @@ const Contact = () => {
     e.preventDefault()
     console.log(fecha.getDay())
     console.log("fecha string", fecha_string)
-    axios.post('http://localhost:3001/api/crearReservacion', {
+    axios.post('https://modenese-server.herokuapp.com/api/crearReservacion', {
       fecha: fecha_string,
       horarioDefinido: horario,
       nombreCliente: nombre + " " + apellido,

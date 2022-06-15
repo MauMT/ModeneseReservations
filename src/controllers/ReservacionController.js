@@ -23,12 +23,14 @@ const crearReservacion = async(req, res, next) => {
     try{
         existingReservation = await Reservacion.findOne({fecha: fecha, numMesa: numMesa, horarioDefinido: horarioDefinido});
     }catch(error){
+        console.log("Error en la busqueda de reservaciones", error);
         return next(
             new HttpError('Error en la búsqueda de reservaciones', 500)
         );
     }
     
     if(existingReservation){
+        console.log("Ya existe una reservacion en esa misma fecha y hora");
         return next(
             new HttpError('Ya existe reservación a esa mesa en esa hora', 422)
         );
@@ -37,7 +39,7 @@ const crearReservacion = async(req, res, next) => {
     try {
         await createdReservation.save();
     } catch (error) {
-        console.log(error);
+        console.log("Error al guardar la reservación", error);
         return next(
             new HttpError('Error al crear reservación', 500)
         );

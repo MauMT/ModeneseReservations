@@ -58,7 +58,7 @@ const CrearProducto = () => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    axios.post('http://localhost:3001/api/crearProducto', {
+    axios.post('https://modenese-server.herokuapp.com/api/crearProducto', {
       nombreProducto: nombre,
       imagen: imagen,
       precio: precio,

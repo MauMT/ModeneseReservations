@@ -18,9 +18,9 @@ import HOUR_GROUP from '../config/constants/horas.js'
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 
-// ruta para el boton de borrar
-let rutaDelete = 'http://localhost:3001/api/admin/eliminarReservacion'
-let rutaEstado = 'http://localhost:3001/api/actualizarEstadoReservacion'
+// ruta para el botón de borrar
+let rutaDelete = 'https://modenese-server.herokuapp.com/api/admin/eliminarReservacion'
+let rutaEstado = 'https://modenese-server.herokuapp.com/api/actualizarEstadoReservacion'
 var adminHeader = { headers: {"Access-Control-Allow-Origin": "*",
 "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, auth-token',
@@ -32,7 +32,7 @@ const Reservaciones = () => {
   const [alertType, setAlertType] = useState(true);
   const [reservaciones, setReservaciones] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:3001/api/getReservacionesActuales')
+    axios.get('https://modenese-server.herokuapp.com/api/getReservacionesActuales')
     .then(function (response) {
       //handle success
       setReservaciones(response.data.reservaciones)

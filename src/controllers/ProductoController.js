@@ -80,9 +80,22 @@ const getProductos = async(req, res, next) => {
     return res.json({ productos });
 }
 
+const eliminarProducto = async(req, res, next) => {
+    const productoId = req.body.productoId;
+    try{
+        await Producto.findByIdAndRemove(productoId);
+    }
+    catch(error){
+        return next(
+            new HttpError('No se pudo eliminar el producto', 500)
+        );
+    }
+    res.status(200).json({ message: 'Producto eliminado'});
+}
 
 module.exports = {
     agregarProductoOrden: agregarProductoOrden,
     crearProducto: crearProducto,
-    getProductos: getProductos
+    getProductos: getProductos,
+    eliminarProducto: eliminarProducto
 }

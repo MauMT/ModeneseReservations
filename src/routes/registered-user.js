@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const ProductoController = require('../controllers/ProductoController');
 const ReservacionController = require('../controllers/ReservacionController');
 
 // agregar header para verificar token
@@ -14,5 +15,6 @@ router.get('/', (req, res) => {
 })
 
 router.post("/eliminarReservacion", ReservacionController.eliminarReservacion);
+router.post("/eliminarProducto", ProductoController.eliminarProducto);
 
 module.exports = router

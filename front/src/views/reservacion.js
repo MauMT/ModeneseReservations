@@ -71,7 +71,7 @@ const Contact = () => {
   const [open, setOpen] = useState(false);
 
   // true es la de success
-  const [alertType, setAlertType] = useState(true);
+  const [alertType, setAlertType] = useState(false);
 
   const [horario, setHorario] = React.useState('');
 
@@ -82,7 +82,7 @@ const Contact = () => {
   let dia = fecha.getDate()
   let mes = fecha.getMonth() + 1
   let año = fecha.getFullYear()
-  console.log("dia",mes)
+  
   var fecha_string = año + "-" + mes + "-" + dia 
 
   function clearFields() {
@@ -96,7 +96,7 @@ const Contact = () => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(fecha.getDay())
+    
     console.log("fecha string", fecha_string)
     axios.post('https://modenese-server.herokuapp.com/api/crearReservacion', {
       fecha: fecha_string,
@@ -108,12 +108,13 @@ const Contact = () => {
     .then(function (response) {
       setAlertType(true)
       setOpen(true)
-      console.log(response);
+      
     })
     .catch(function (error) {
       setAlertType(false)
       setOpen(true)
-      console.log(error);
+      console.log(alertType);
+      console.log("error handle submit", error);
     });
     e.target.reset();
     clearFields();
@@ -168,7 +169,7 @@ const Contact = () => {
                     sx = {{width: 2/3}}
                     onChange={(newValue) => {
                       setFecha(newValue);
-                      console.log("nuevo mes", newValue.getMonth())
+                      
                     }}
                     
                     renderInput={(params) => <TextField {...params} 
@@ -216,7 +217,7 @@ const Contact = () => {
                   {setPersonas(e.target.value); 
                   console.log(personas)}} 
                 required fullWidth 
-                label="Número de personas" />
+                label="Número de personas (máx. 10 por reservación)" />
             </Grid>
             <Grid item xs={12} sm={6}>
                   <Box sx={{ minWidth: 120 }}>

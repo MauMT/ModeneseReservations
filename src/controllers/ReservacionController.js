@@ -5,7 +5,7 @@ const Reservacion = require('../models/reservacion');
 const moment = require('moment')
 
 const crearReservacion = async(req, res, next) => {
-    console.log(req);
+    console.log("mauuuu",req);
     const {fecha, horarioDefinido, nombreCliente, estado, numPersonas, numMesa} = req.body;
 
     const createdReservation = new Reservacion({
@@ -28,13 +28,29 @@ const crearReservacion = async(req, res, next) => {
             new HttpError('Error en la búsqueda de reservaciones', 500)
         );
     }
-    
+
     if(existingReservation){
         console.log("Ya existe una reservacion en esa misma fecha y hora");
         return next(
             new HttpError('Ya existe reservación a esa mesa en esa hora', 422)
         );
     }
+
+    
+    try{
+        if(fecha <= moment().format('YYYY-MM-DD')){
+            console.log("La fecha de la reservacion ya pasó");
+            return next(
+                new HttpError('La fecha de la reservación ya pasó', 422)
+            );
+        }
+    }catch(error){
+        console.log("Error en la validacion de fecha", error);
+        return next(
+            new HttpError('Error en la validación de fecha', 500)
+        );
+    }
+
 
     try {
         await createdReservation.save();

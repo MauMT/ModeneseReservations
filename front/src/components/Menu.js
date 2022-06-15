@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import { Home, CrearProducto, Products, Sucursales, Contact, Promociones, Reservaciones, Login } from '../views';
+import { Home, CrearProducto, Products, Sucursales, Contact, Promociones, Reservaciones, Login, ProductsAdmin } from '../views';
 import CartPage from '../views/cartPage'
 
 import { Grid, Tab, Tabs } from '@material-ui/core';
@@ -52,6 +52,11 @@ const routes = [
     name: 'Crear Producto',
     ruta: '/crearProducto',
     component: CrearProducto,
+  },
+  {
+    name: 'Productos',
+    ruta: '/productosAdmin',
+    component: ProductsAdmin,
   }
 ];
 
